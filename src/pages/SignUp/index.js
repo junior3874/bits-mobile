@@ -15,7 +15,7 @@ import {
   ForgotPasswordText
 } from "./styles";
 
-function SignIn() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -70,4 +70,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUp;
