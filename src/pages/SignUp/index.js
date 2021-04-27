@@ -16,6 +16,7 @@ import {
 } from "./styles";
 
 function SignUp() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,10 +31,9 @@ function SignUp() {
 
         <InputField
           leftIcon={() => <Feather name="user" size={18} color="#8900f2" />}
-          value={password}
+          value={name}
           placeholder="Nome"
-          onChangeText={text => setPassword(text)}
-          secureTextEntry={true}
+          onChangeText={text => setName(text)}
           autoCorrect={false}
         />
 
