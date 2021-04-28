@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import Toast from "react-native-toast-message";
 
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
@@ -26,7 +27,19 @@ function SignIn() {
       password,
     };
 
-    await signIn(data);
+    const response = await signIn(data);
+
+    if (response.error) {
+      showError();
+    }
+  }
+
+  function showError() {
+    Toast.show({
+      type: "error",
+      text1: "Erro",
+      text2: "Falha ao fazer login!",
+    });
   }
 
   return (
