@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
@@ -6,7 +6,7 @@ import InputField from "../../components/InputField";
 import Button from "../../components/Button";
 import HeaderImage from "../../components/HeaderImage";
 import GoBackArrow from "../../components/GoBackArrow";
-
+import { AuthContext } from "../../contexts/authContext";
 import {
   Container,
   Content,
@@ -16,8 +16,18 @@ import {
 } from "./styles";
 
 function SignIn() {
+  const { signIn } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  async function handleSignIn() {
+    const data = {
+      email,
+      password,
+    };
+
+    await signIn(data);
+  }
 
   return (
     <Container>
@@ -55,6 +65,7 @@ function SignIn() {
           variantColor="#8900F2"
           title="Entrar"
           style={{ marginTop: 64 }}
+          onPress={handleSignIn}
         />
       </Content>
     </Container>
