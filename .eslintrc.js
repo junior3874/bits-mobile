@@ -19,5 +19,7 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": "off",
+    "no-use-before-define": "off",
+    "react/jsx-props-no-spreading": "off",
   },
 };
