@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
@@ -84,22 +84,21 @@ export const OverviewContent = styled.View`
 `;
 
 export const OverviewContentItem = styled.View`
-  flex-direction: ${(props) => (props.column ? 'column' : 'row')};
-  margin-top: ${(props) => (props.column ? '12px' : '12px')};
+  flex-direction: ${props => (props.column ? "column" : "row")};
+  margin-top: ${props => (props.column ? "12px" : "12px")};
   align-items: center;
 `;
 
 export const OverviewContentItemProperty = styled.Text`
-  font-size: ${(props) => (props.bigger ? '20px' : '16px')};
-  margin-top: ${(props) => (props.bigger ? '-2px' : '0')};
+  font-size: ${props => (props.bigger ? "20px" : "16px")};
+  margin-top: ${props => (props.bigger ? "-2px" : "0")};
   color: #999;
 `;
 
 export const OverviewContentItemValue = styled.Text`
   font-weight: bold;
-  font-size: ${(props) => (props.bigger ? '20px' : '16px')};
-  color: ${(props) => (props.coloured ? '#8900f2' : '#333')};
-  margin-top: ${(props) => (props.bigger ? '3px' : '0')};
+  font-size: ${props => (props.bigger ? "20px" : "16px")};
+  color: ${props => (props.coloured ? "#8900f2" : "#333")};
+  margin-top: ${props => (props.bigger ? "3px" : "0")};
   margin-left: 8px;
 `;
-

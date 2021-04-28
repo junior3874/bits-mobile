@@ -12,7 +12,7 @@ import {
   Content,
   Heading,
   Paragraph,
-  ForgotPasswordText
+  ForgotPasswordText,
 } from "./styles";
 
 function SignUp() {
@@ -51,7 +51,7 @@ function SignUp() {
           value={password}
           placeholder="Senha"
           onChangeText={text => setPassword(text)}
-          secureTextEntry={true}
+          secureTextEntry
           autoCorrect={false}
         />
 

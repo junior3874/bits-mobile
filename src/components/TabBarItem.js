@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity,
   ImageBackground,
-} from 'react-native';
+} from "react-native";
 
 function TabBarItem({
   route,
@@ -27,7 +27,7 @@ function TabBarItem({
 
   const onPress = () => {
     const event = navigation.emit({
-      type: 'tabPress',
+      type: "tabPress",
       target: route.key,
       canPreventDefault: true,
     });
@@ -39,7 +39,7 @@ function TabBarItem({
 
   const onLongPress = () => {
     navigation.emit({
-      type: 'tabLongPress',
+      type: "tabLongPress",
       target: route.key,
     });
   };
@@ -54,15 +54,17 @@ function TabBarItem({
       onLongPress={onLongPress}
       style={{
         flex: 1,
-        alignItems: 'center',
+        alignItems: "center",
       }}
-      key={route.key}>
+      key={route.key}
+    >
       <Image source={isFocused ? options.activeIconImg : options.iconImg} />
       <Text
         style={{
-          color: isFocused ? '#8900f2' : '#333',
+          color: isFocused ? "#8900f2" : "#333",
           fontSize: 12,
-        }}>
+        }}
+      >
         {label}
       </Text>
     </TouchableOpacity>

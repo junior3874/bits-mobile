@@ -1,6 +1,6 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo } from "react";
 
-import { TouchableWithoutFeedback } from 'react-native';
+import { TouchableWithoutFeedback } from "react-native";
 
 import {
   Container,
@@ -9,19 +9,14 @@ import {
   InputContainer,
   Input,
   InputPlaceholder,
-} from './styles';
+} from "./styles";
 
-function InputField({
-  leftIcon: LeftIcon,
-  placeholder,
-  value,
-  ...rest
-}) {
+function InputField({ leftIcon: LeftIcon, placeholder, value, ...rest }) {
   const inputRef = useRef();
   const [isInputOpen, setIsInputOpen] = useState(false);
 
   const active = useMemo(() => {
-    return isInputOpen || value !== '';
+    return isInputOpen || value !== "";
   }, [isInputOpen, value]);
 
   function setFocusToInput() {

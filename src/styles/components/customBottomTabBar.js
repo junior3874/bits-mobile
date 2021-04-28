@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const ImageContainer = styled.ImageBackground`
   width: 100%;
@@ -32,7 +32,7 @@ export const AddTransaction = styled.View`
 `;
 
 export const AddTransactionTouchable = styled.TouchableOpacity`
-  background-color: ${({ isMenuOpen }) => isMenuOpen ? "#8900f2" : "#fff"};
+  background-color: ${({ isMenuOpen }) => (isMenuOpen ? "#8900f2" : "#fff")};
   border-radius: 32px;
   width: 64px;
   height: 64px;

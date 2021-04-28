@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { Text } from 'react-native';
+import { Text } from "react-native";
 import {
   Container,
   HalvedBottomBorder,
-} from '../styles/components/underlinedText';
+} from "../styles/components/underlinedText";
 
 function UnderlinedText({
   textSize,
@@ -12,7 +12,7 @@ function UnderlinedText({
   textColor,
   borderWidth,
   borderColor,
-  borderPosition = 'center',
+  borderPosition = "center",
   borderShown,
   children,
   ...rest
@@ -25,7 +25,8 @@ function UnderlinedText({
           fontSize: textSize,
           fontWeight: textWeight,
           color: textColor,
-        }}>
+        }}
+      >
         {children}
       </Text>
       <HalvedBottomBorder

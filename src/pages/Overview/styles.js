@@ -140,7 +140,7 @@ export const Wallet = styled.View`
 export const WalletGradient = styled(LinearGradient).attrs(_ => ({
   colors: ["#8900f2", "#2d00f7"],
   start: { x: 0, y: 0 },
-  end: { x: 0.75, y: 1 }
+  end: { x: 0.75, y: 1 },
 }))`
   padding: 24px;
   border-radius: 20px;

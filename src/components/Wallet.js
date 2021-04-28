@@ -1,19 +1,20 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/Feather';
+import React from "react";
+import Icon from "react-native-vector-icons/Feather";
 
 import {
   Container,
   FlexRowSpacedBetween,
   Name,
   Value,
-} from '../styles/components/wallet';
+} from "../styles/components/wallet";
 
 function Wallet({ walletName, walletValue }) {
   return (
     <Container
-      colors={['#8900f2', '#2d00f7']}
+      colors={["#8900f2", "#2d00f7"]}
       start={{ x: 0, y: 0.5 }}
-      end={{ x: 1, y: 0.95 }}>
+      end={{ x: 1, y: 0.95 }}
+    >
       <FlexRowSpacedBetween>
         <Name>{walletName}</Name>
 

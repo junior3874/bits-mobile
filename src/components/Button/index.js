@@ -5,7 +5,11 @@ import { StyledTouchableOpacity, Title } from "./styles";
 
 function Button({ variant, variantColor, onPress, title }) {
   return (
-    <StyledTouchableOpacity variant={variant} variantColor={variantColor} onPress={onPress}>
+    <StyledTouchableOpacity
+      variant={variant}
+      variantColor={variantColor}
+      onPress={onPress}
+    >
       <Title variant={variant} variantColor={variantColor}>
         {title}
       </Title>

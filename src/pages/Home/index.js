@@ -8,7 +8,7 @@ import {
   Logo,
   Hero,
   GroupingView,
-  Heading
+  Heading,
 } from "./styles";
 
 import LogoImg from "../../assets/images/B.png";

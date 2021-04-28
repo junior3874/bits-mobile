@@ -9,7 +9,7 @@ import {
   MonthList,
   Month,
   MonthBulletPoint,
-  MonthName
+  MonthName,
 } from "./styles";
 
 function Chart() {
@@ -22,7 +22,7 @@ function Chart() {
       score: 3,
       sep: {
         value: 342,
-      }
+      },
     },
     {
       date: "2019-01-05T02:31:40Z",
@@ -32,7 +32,7 @@ function Chart() {
       score: 9,
       sep: {
         value: 342,
-      }
+      },
     },
     {
       date: "2019-01-06T06:03:09Z",
@@ -42,7 +42,7 @@ function Chart() {
       score: 10,
       sep: {
         value: 342,
-      }
+      },
     },
     {
       date: "2019-01-22T06:23:01Z",
@@ -52,7 +52,7 @@ function Chart() {
       score: 7,
       sep: {
         value: 342,
-      }
+      },
     },
     {
       date: "2019-01-26T22:37:01Z",
@@ -62,7 +62,7 @@ function Chart() {
       score: 6,
       sep: {
         value: 342,
-      }
+      },
     },
     {
       date: "2019-01-30T16:20:19Z",
@@ -72,8 +72,8 @@ function Chart() {
       score: 10,
       sep: {
         value: 342,
-      }
-    }
+      },
+    },
   ];
   const [tooltipX, setTooltipX] = useState(null);
   const [tooltipY, setTooltipY] = useState(null);
@@ -83,7 +83,7 @@ function Chart() {
   // const colors = ["#8800cc", "#aa00ff"];
   const colors = [
     ["#ff00d4", "#fd85c9"],
-    ["#9000ff", "#c06ffe"]
+    ["#9000ff", "#c06ffe"],
   ];
   const keys = ["september", "october"];
   // const svgs = [{ fill: "url(#grad1)" }, { fill: "url(#grad0)" }];

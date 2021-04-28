@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native';
+import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
   margin-top: 32px;
@@ -16,7 +16,7 @@ export const Content = styled.View`
 `;
 
 export const LeftIconView = styled.View`
-  display: ${(props) => (props.active ? 'none' : 'flex')};
+  display: ${props => (props.active ? "none" : "flex")};
   margin-left: 16px;
   margin-right: 20px;
 `;
@@ -33,7 +33,7 @@ export const InputContainer = styled.View`
 export const Input = styled.TextInput`
   position: absolute;
   width: 100%;
-  margin-left: ${(props) => (props.active ? '16px' : 0)};
+  margin-left: ${props => (props.active ? "16px" : 0)};
 `;
 
 const inputPlaceholderNotFocused = css`
@@ -54,7 +54,7 @@ const inputPlaceholderFocused = css`
 `;
 
 export const InputPlaceholder = styled.Text`
-  ${(props) => {
+  ${props => {
     if (props.active) {
       return inputPlaceholderFocused;
     }

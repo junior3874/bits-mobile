@@ -13,7 +13,7 @@ const Tooltip = ({
   tooltipShown,
   color,
   tooltipIndex,
-  dataLength
+  dataLength,
 }) => {
   let xAxis = 4;
   if (dataLength > 4) {
@@ -26,8 +26,11 @@ const Tooltip = ({
     }
   }
 
-  let tooltipValueFormatted = `R$ ${tooltipValue},26`
-  let rectWidth = tooltipValueFormatted.length < 10 ? 72 : (tooltipValueFormatted.length * 8) - (tooltipValueFormatted.length * 0.5);
+  let tooltipValueFormatted = `R$ ${tooltipValue},26`;
+  let rectWidth =
+    tooltipValueFormatted.length < 10
+      ? 72
+      : tooltipValueFormatted.length * 8 - tooltipValueFormatted.length * 0.5;
 
   if (!tooltipShown) {
     return null;
@@ -36,7 +39,15 @@ const Tooltip = ({
   return (
     <G x={x(tooltipX) - 40} y={y(tooltipY)}>
       <G y={-35} x={xAxis}>
-        <Rect x={-2} y={0} ry={4} rx={4} fill="white" width={rectWidth} height={22} />
+        <Rect
+          x={-2}
+          y={0}
+          ry={4}
+          rx={4}
+          fill="white"
+          width={rectWidth}
+          height={22}
+        />
         <Text x={6} y={14} fill="#8900f2">
           {tooltipValueFormatted}
         </Text>
@@ -46,4 +57,3 @@ const Tooltip = ({
 };
 
 export default Tooltip;
-

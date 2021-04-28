@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   padding: 20px;
@@ -16,7 +16,7 @@ export const LeftIcon = styled.View`
   width: 32px;
   height: 32px;
   background-color: ${({ type }) =>
-    type === 'ok' ? '#a2f5d5' : type === 'warning' ? '#ffeea8' : '#ffb5a8'};
+    type === "ok" ? "#a2f5d5" : type === "warning" ? "#ffeea8" : "#ffb5a8"};
   border-radius: 16px;
 `;
 
@@ -46,4 +46,3 @@ export const TimeAgo = styled.Text`
   /* Cinza */
   color: #bfbfbf;
 `;
-

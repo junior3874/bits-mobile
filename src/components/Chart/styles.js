@@ -16,7 +16,7 @@ export const StyledStackedAreaChart = styled(StackedAreaChart).attrs(_ => ({
 
 export const BottomLinearGradient = styled(LinearGradient).attrs(_ => ({
   start: { x: 1, y: 1 },
-  end: { x: 0, y: 0 }
+  end: { x: 0, y: 0 },
 }))`
   width: 100%;
   height: 16px;
@@ -38,7 +38,7 @@ export const Month = styled.View`
 
 export const MonthBulletPoint = styled(LinearGradient).attrs(_ => ({
   start: { x: 1, y: 1 },
-  end: { x: 0, y: 0 }
+  end: { x: 0, y: 0 },
 }))`
   width: 12px;
   height: 12px;
@@ -50,4 +50,3 @@ export const MonthName = styled.Text`
   color: #333;
   font-size: 16px;
 `;
-

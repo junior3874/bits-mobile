@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.ScrollView.attrs(_ => ({
   showsVerticalScrollIndicator: false,
@@ -31,4 +31,3 @@ export const ForgotPasswordText = styled.Text`
   margin-top: 10px;
   margin-bottom: 50px;
 `;
-
