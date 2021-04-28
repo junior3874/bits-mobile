@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
         .then(res => {
           setToken(res.data.token);
           setSigned(true);
+          return { status: res.status, body: res.data };
         })
         .catch(err => ({ error: true, message: err.message })),
     []
