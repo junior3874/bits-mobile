@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import Toast from "react-native-toast-message";
+import { toasts } from "../../utils/toasts";
 import { AuthContext } from "../../contexts/authContext";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
@@ -34,28 +34,12 @@ function SignUp() {
 
     const response = await signUp(data);
     if (response.error) {
-      showError();
+      toasts.error();
       return;
     }
 
-    showSuccess();
+    toasts.success();
     navigation.navigate("SignIn");
-  }
-
-  function showError() {
-    Toast.show({
-      type: "error",
-      text1: "Erro",
-      text2: "Falha ao fazer cadastro!",
-    });
-  }
-
-  function showSuccess() {
-    Toast.show({
-      type: "success",
-      text1: "Successo",
-      text2: "Cadastro feito com sucesso!",
-    });
   }
 
   return (

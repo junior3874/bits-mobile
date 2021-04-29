@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import Toast from "react-native-toast-message";
 import { useNavigation } from "@react-navigation/native";
-
+import { toasts } from "../../utils/toasts";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
 import HeaderImage from "../../components/HeaderImage";
@@ -32,19 +31,11 @@ function SignIn() {
     const response = await signIn(data);
 
     if (response.error) {
-      showError();
+      toasts.error();
       return;
     }
 
     navigation.navigate("OverviewBottomTabNavigation");
-  }
-
-  function showError() {
-    Toast.show({
-      type: "error",
-      text1: "Erro",
-      text2: "Falha ao fazer login!",
-    });
   }
 
   return (
