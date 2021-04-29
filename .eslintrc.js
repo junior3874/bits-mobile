@@ -22,5 +22,6 @@ module.exports = {
     "no-use-before-define": "off",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
+    "consistent-return": "off",
   },
 };
