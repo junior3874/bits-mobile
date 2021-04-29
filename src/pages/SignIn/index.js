@@ -31,7 +31,7 @@ function SignIn() {
     const response = await signIn(data);
 
     if (response.error) {
-      toasts.error();
+      toasts.error("Falha ao fazer login!");
       return;
     }
 

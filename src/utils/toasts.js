@@ -1,18 +1,18 @@
 import Toast from "react-native-toast-message";
 
 export const toasts = {
-  error() {
+  error(text2) {
     Toast.show({
       type: "error",
       text1: "Erro",
-      text2: "Falha ao fazer cadastro!",
+      text2,
     });
   },
-  success() {
+  success(text2) {
     Toast.show({
       type: "success",
       text1: "Successo",
-      text2: "Cadastro feito com sucesso!",
+      text2,
     });
   },
 };

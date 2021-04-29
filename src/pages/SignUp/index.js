@@ -34,11 +34,11 @@ function SignUp() {
 
     const response = await signUp(data);
     if (response.error) {
-      toasts.error();
+      toasts.error("Falha ao fazer cadastro!");
       return;
     }
 
-    toasts.success();
+    toasts.success("Cadastro feito com sucesso!");
     navigation.navigate("SignIn");
   }
 
