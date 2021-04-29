@@ -21,8 +21,17 @@ export const AuthProvider = ({ children }) => {
     []
   );
 
+  const signUp = useCallback(
+    data =>
+      api
+        .post("/signup", data)
+        .then(res => ({ status: res.status, body: res.data }))
+        .catch(err => ({ error: true, message: err.message })),
+    []
+  );
+
   return (
-    <AuthContext.Provider value={{ signed, token, signIn }}>
+    <AuthContext.Provider value={{ signed, token, signIn, signUp }}>
       {children}
     </AuthContext.Provider>
   );
