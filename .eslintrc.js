@@ -23,5 +23,6 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
     "consistent-return": "off",
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
 };
