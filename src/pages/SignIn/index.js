@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Toast from "react-native-toast-message";
+import { useNavigation } from "@react-navigation/native";
 
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
@@ -20,6 +21,7 @@ function SignIn() {
   const { signIn } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
 
   async function handleSignIn() {
     const data = {
@@ -31,7 +33,10 @@ function SignIn() {
 
     if (response.error) {
       showError();
+      return;
     }
+
+    navigation.navigate("OverviewBottomTabNavigation");
   }
 
   function showError() {
