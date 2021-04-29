@@ -80,13 +80,11 @@ function Chart() {
   const [tooltipIndex, setTooltipIndex] = useState(null);
   const [tooltipValue, setTooltipValue] = useState(null);
   const [tooltipShown, setTooltipShown] = useState(false);
-  // const colors = ["#8800cc", "#aa00ff"];
   const colors = [
     ["#ff00d4", "#fd85c9"],
     ["#9000ff", "#c06ffe"],
   ];
   const keys = ["september", "october"];
-  // const svgs = [{ fill: "url(#grad1)" }, { fill: "url(#grad0)" }];
   const svgs = keys.map(item => ({ fill: `url(#gradient-${item})` }));
 
   const ChartPoints = ({ x, y }) =>
