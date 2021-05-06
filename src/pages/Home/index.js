@@ -23,7 +23,7 @@ function Home() {
     if (signed) {
       return navigation.navigate("OverviewBottomTabNavigation");
     }
-  }, []);
+  }, [signed]);
 
   if (loading) {
     return (
