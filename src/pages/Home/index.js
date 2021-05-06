@@ -19,6 +19,12 @@ function Home() {
   const { signed, loading } = useContext(AuthContext);
   const navigation = useNavigation();
 
+  useEffect(() => {
+    if (signed) {
+      return navigation.navigate("OverviewBottomTabNavigation");
+    }
+  }, []);
+
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -26,12 +32,6 @@ function Home() {
       </View>
     );
   }
-
-  useEffect(() => {
-    if (signed) {
-      return navigation.navigate("OverviewBottomTabNavigation");
-    }
-  }, []);
 
   return (
     <Container>
