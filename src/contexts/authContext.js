@@ -48,8 +48,10 @@ export const AuthProvider = ({ children }) => {
       })
       .catch(err => ({ error: true, message: err.message }));
 
-    await AsyncStorage.setItem("@Bits:token", res.body.token);
-    await AsyncStorage.setItem("@Bits:username", res.body.username);
+    if (!res.error) {
+      await AsyncStorage.setItem("@Bits:token", res.body.token);
+      await AsyncStorage.setItem("@Bits:username", res.body.username);
+    }
 
     return res;
   }, []);
