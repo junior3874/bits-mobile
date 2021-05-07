@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
@@ -6,6 +6,8 @@ import transactionsImg from "../../assets/images/left-and-right-arrow.png";
 import debtsImg from "../../assets/images/debts.png";
 import budgetsImg from "../../assets/images/budgets.png";
 import curvedPurpleBackgroundImg from "../../assets/images/curved-purple-background.png";
+
+import { AuthContext } from "../../contexts/authContext";
 
 import {
   Container,
@@ -36,6 +38,8 @@ import BottomDivider from "../../components/BottomDivider";
 import Chart from "../../components/Chart";
 
 function Overview() {
+  const { username } = useContext(AuthContext);
+
   return (
     <Container>
       <HeaderImage source={curvedPurpleBackgroundImg} />
@@ -43,7 +47,7 @@ function Overview() {
       <Content>
         <HeaderContent>
           <Greetings>
-            Olá, <Bold>Vinícius</Bold>
+            Olá, <Bold>{username}</Bold>
           </Greetings>
 
           <Menu>

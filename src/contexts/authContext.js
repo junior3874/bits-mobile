@@ -7,11 +7,13 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [signed, setSigned] = useState();
   const [token, setToken] = useState();
+  const [username, setUsername] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async function loadStoragedToken() {
       const storedToken = await AsyncStorage.getItem("@Bits:token");
+      const storedUsername = await AsyncStorage.getItem("@Bits:username");
       const tokenBearer = `Bearer ${storedToken}`;
 
       await api
@@ -23,6 +25,7 @@ export const AuthProvider = ({ children }) => {
         .then(_ => {
           setSigned(true);
           setToken(storedToken);
+          setUsername(storedUsername);
           api.defaults.headers.Authorization = tokenBearer;
         })
         .catch(_ => {
@@ -39,7 +42,9 @@ export const AuthProvider = ({ children }) => {
         .post("/session", data)
         .then(async res => {
           await AsyncStorage.setItem("@Bits:token", res.data.token);
+          await AsyncStorage.setItem("@Bits:username", res.data.username);
           setToken(res.data.token);
+          setUsername(res.data.username);
           setSigned(true);
           return { status: res.status, body: res.data };
         })
@@ -57,7 +62,9 @@ export const AuthProvider = ({ children }) => {
   );
 
   return (
-    <AuthContext.Provider value={{ signed, token, signIn, signUp, loading }}>
+    <AuthContext.Provider
+      value={{ signed, token, username, signIn, signUp, loading }}
+    >
       {children}
     </AuthContext.Provider>
   );
