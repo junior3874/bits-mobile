@@ -24,5 +24,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "consistent-return": "off",
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "no-shadow": "off",
   },
 };
