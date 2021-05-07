@@ -36,21 +36,22 @@ export const AuthProvider = ({ children }) => {
     })();
   }, []);
 
-  const signIn = useCallback(
-    data =>
-      api
-        .post("/session", data)
-        .then(async res => {
-          await AsyncStorage.setItem("@Bits:token", res.data.token);
-          await AsyncStorage.setItem("@Bits:username", res.data.username);
-          setToken(res.data.token);
-          setUsername(res.data.username);
-          setSigned(true);
-          return { status: res.status, body: res.data };
-        })
-        .catch(err => ({ error: true, message: err.message })),
-    []
-  );
+  const signIn = useCallback(async data => {
+    const res = await api
+      .post("/session", data)
+      .then(body => {
+        setToken(body.data.token);
+        setUsername(body.data.username);
+        setSigned(true);
+        return { status: res.status, body: res.data };
+      })
+      .catch(err => ({ error: true, message: err.message }));
+
+    await AsyncStorage.setItem("@Bits:token", res.data.token);
+    await AsyncStorage.setItem("@Bits:username", res.data.username);
+
+    return res;
+  }, []);
 
   const signUp = useCallback(
     data =>
