@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
-
+import api from "../../services/api";
 import transactionsImg from "../../assets/images/left-and-right-arrow.png";
 import debtsImg from "../../assets/images/debts.png";
 import budgetsImg from "../../assets/images/budgets.png";
@@ -39,6 +40,20 @@ import Chart from "../../components/Chart";
 
 function Overview() {
   const { username } = useContext(AuthContext);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    (async () => {
+      const response = await api
+        .get("/wallet")
+        .then(res => ({ error: false, data: res.data }))
+        .catch(err => ({ error: true, err }));
+
+      if (response.error) {
+        navigation.navigate("CreateWallet");
+      }
+    })();
+  }, []);
 
   return (
     <Container>
@@ -109,7 +124,7 @@ function Overview() {
             start={{ x: 0, y: 0 }}
             end={{ x: 0.75, y: 1 }}
           >
-            <WalletTitle>Carteira de Vinícius</WalletTitle>
+            <WalletTitle>Carteira de {username}</WalletTitle>
 
             <RowSpacedBetween>
               <WalletBalance>R$ 826,76</WalletBalance>
