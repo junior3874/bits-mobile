@@ -42,18 +42,18 @@ function Overview() {
   const { username } = useContext(AuthContext);
   const navigation = useNavigation();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const response = await api
-  //       .get("/wallet")
-  //       .then(res => ({ error: false, data: res.data }))
-  //       .catch(err => ({ error: true, err }));
+  useEffect(() => {
+    (async () => {
+      const response = await api
+        .get("/wallet")
+        .then(res => ({ error: false, data: res.data }))
+        .catch(err => ({ error: true, err }));
 
-  //     if (response.error) {
-  //       navigation.navigate("CreateWallet");
-  //     }
-  //   })();
-  // }, []);
+      if (response.error) {
+        navigation.navigate("CreateWallet");
+      }
+    })();
+  }, []);
 
   function navegatePage(pageName) {
     return navigation.navigate(pageName);
