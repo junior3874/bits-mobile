@@ -36,7 +36,7 @@ export const Menu = styled.View`
   justify-content: space-between;
 `;
 
-export const MenuItem = styled.View`
+export const MenuItem = styled.TouchableOpacity`
   width: 29%;
   height: 96px;
   background-color: #fff;
