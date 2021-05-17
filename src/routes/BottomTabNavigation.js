@@ -6,6 +6,8 @@ import OverviewStackNavigation from "./OverviewStackNavigation";
 
 import CustomBottomTabBar from "../components/CustomBottomTabBar";
 
+import CreateWallet from "../pages/CreateWallet";
+
 import Overview from "../pages/Overview";
 import Transactions from "../pages/Transactions";
 import Notifications from "../pages/Notifications";
@@ -24,13 +26,16 @@ const Tab = createBottomTabNavigator();
 function BottomTabNavigation() {
   return (
     <Tab.Navigator
-      initialRouteName="Overview"
+      initialRouteName="Início"
       tabBar={props => <CustomBottomTabBar {...props} />}
     >
       <Tab.Screen
         name="Início"
         component={OverviewStackNavigation}
-        options={{ iconImg: homeImg, activeIconImg: homeActiveImg }}
+        options={{
+          iconImg: homeImg,
+          activeIconImg: homeActiveImg,
+        }}
       />
       <Tab.Screen
         name="Notificações"
@@ -50,6 +55,7 @@ function BottomTabNavigation() {
         component={() => <Text>Teste1</Text>}
         options={{ iconImg: priceTagImg, activeIconImg: priceTagActiveImg }}
       />
+      <Tab.Screen name="CreateWallet" component={CreateWallet} />
     </Tab.Navigator>
   );
 }
