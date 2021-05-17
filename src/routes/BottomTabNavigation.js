@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import { Text } from "react-native";
 import OverviewStackNavigation from "./OverviewStackNavigation";
 
-import { View, Text } from "react-native";
 import CustomBottomTabBar from "../components/CustomBottomTabBar";
 
 import Overview from "../pages/Overview";
