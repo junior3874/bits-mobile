@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRoute } from "@react-navigation/native";
 import { Image } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Feather } from "@expo/vector-icons";
@@ -27,10 +28,11 @@ import { toasts } from "../../utils/toasts";
 import { formatBalance, convertBalanceToNumber } from "./utils/formatBalance";
 import currencyCodes from "./utils/currencyCodes.json";
 
-function CreateWallet({ title }) {
+function CreateWallet() {
   const [name, setName] = useState("");
   const [currency, setCurrency] = useState(null);
   const [balance, setBalance] = useState("");
+  const route = useRoute();
 
   async function handleSubmit() {
     const data = {
@@ -52,7 +54,7 @@ function CreateWallet({ title }) {
   return (
     <Container>
       <Header>
-        <Title>{title || "Vamos criar sua primeira carteira!"}</Title>
+        <Title>{route.params.title || "Criar nova carteira!"}</Title>
       </Header>
 
       <Content>
