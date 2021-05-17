@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, TouchableWithoutFeedback } from "react-native";
+import { Image } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Feather } from "@expo/vector-icons";
 
@@ -68,30 +68,24 @@ function CreateWallet({ title }) {
           />
         </InputWithIcon>
 
-        <TouchableWithoutFeedback onPress={() => console.log("hhh")}>
-          <InputWithIcon>
-            <InputIcon>
-              <Image source={MoneyBagIcon} />
-            </InputIcon>
-            <PickerView>
-              <StyledPicker
-                selectedValue={currency}
-                onValueChange={value => setCurrency(value)}
-                mode="dialog"
-                prompt="Escolha a moeda da sua carteira"
-              >
-                <Picker.Item label="Moeda" value={null} />
-                {Object.keys(currencyCodes).map(key => (
-                  <Picker.Item
-                    key={key}
-                    label={key}
-                    value={currencyCodes[key]}
-                  />
-                ))}
-              </StyledPicker>
-            </PickerView>
-          </InputWithIcon>
-        </TouchableWithoutFeedback>
+        <InputWithIcon>
+          <InputIcon>
+            <Image source={MoneyBagIcon} />
+          </InputIcon>
+          <PickerView>
+            <StyledPicker
+              selectedValue={currency}
+              onValueChange={value => setCurrency(value)}
+              mode="dialog"
+              prompt="Escolha a moeda da sua carteira"
+            >
+              <Picker.Item label="Moeda" value={null} />
+              {Object.keys(currencyCodes).map(key => (
+                <Picker.Item key={key} label={key} value={currencyCodes[key]} />
+              ))}
+            </StyledPicker>
+          </PickerView>
+        </InputWithIcon>
 
         <InputWithIcon>
           <InputIcon>
