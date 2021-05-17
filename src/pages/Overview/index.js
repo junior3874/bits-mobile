@@ -50,7 +50,10 @@ function Overview() {
         .catch(err => ({ error: true, err }));
 
       if (response.error) {
-        navigation.navigate("CreateWallet");
+        navigation.navigate("CreateWallet", {
+          title: "Vamos criar sua primeira carteira!",
+          canGoBack: false,
+        });
       }
     })();
   }, []);
