@@ -19,6 +19,9 @@ export const Header = styled.View`
 export const Title = styled.Text`
   color: #fff;
   font-size: 25px;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
 `;
 
 export const Content = styled.View`
