@@ -4,6 +4,7 @@ import { Image } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Feather } from "@expo/vector-icons";
 
+import GoBackArrow from "../../components/GoBackArrow";
 import BottomDivider from "../../components/BottomDivider";
 
 import {
@@ -53,6 +54,8 @@ function CreateWallet() {
 
   return (
     <Container>
+      {route.params.canGoBack !== false && <GoBackArrow />}
+
       <Header>
         <Title>{route.params.title || "Criar nova carteira!"}</Title>
       </Header>
