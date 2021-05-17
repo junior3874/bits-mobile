@@ -33,7 +33,7 @@ function MyTabBar({ state, navigation, descriptors }) {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
 
   const firstPairOfRoutes = state.routes.slice(0, 2);
-  const secondPairOfRoutes = state.routes.slice(2, 5);
+  const secondPairOfRoutes = state.routes.slice(2, 4);
   // const fourItems = [firstPairOfRoutes, secondPairOfRoutes];
 
   if (focusedOptions.tabBarVisible === false) {
