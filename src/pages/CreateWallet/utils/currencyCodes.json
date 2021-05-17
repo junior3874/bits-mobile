@@ -1,0 +1,742 @@
+{
+  "AED": {
+    "symbol": "\u062f.\u0625",
+    "decimalDigits": "2",
+    "key": "AED"
+  },
+  "AFN": {
+    "symbol": "Af",
+    "decimalDigits": "2",
+    "key": "AFN"
+  },
+  "ALL": {
+    "symbol": "L",
+    "decimalDigits": "2",
+    "key": "ALL"
+  },
+  "AMD": {
+    "symbol": "\u0534",
+    "decimalDigits": "2",
+    "key": "AMD"
+  },
+  "AOA": {
+    "symbol": "Kz",
+    "decimalDigits": "2",
+    "key": "AOA"
+  },
+  "ARS": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "ARS"
+  },
+  "AUD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "AUD"
+  },
+  "AWG": {
+    "symbol": "\u0192",
+    "decimalDigits": "2",
+    "key": "AWG"
+  },
+  "AZN": {
+    "symbol": "\u043c\u0430\u043d",
+    "decimalDigits": "2",
+    "key": "AZN"
+  },
+  "BAM": {
+    "symbol": "\u041a\u041c",
+    "decimalDigits": "2",
+    "key": "BAM"
+  },
+  "BBD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "BBD"
+  },
+  "BDT": {
+    "symbol": "\u09f3",
+    "decimalDigits": "2",
+    "key": "BDT"
+  },
+  "BGN": {
+    "symbol": "\u043b\u0432",
+    "decimalDigits": "2",
+    "key": "BGN"
+  },
+  "BHD": {
+    "symbol": "\u0628.\u062f",
+    "decimalDigits": "3",
+    "key": "BHD"
+  },
+  "BIF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "0",
+    "key": "BIF"
+  },
+  "BMD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "BMD"
+  },
+  "BND": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "BND"
+  },
+  "BOB": {
+    "symbol": "Bs.",
+    "decimalDigits": "2",
+    "key": "BOB"
+  },
+  "BRL": {
+    "symbol": "R$",
+    "decimalDigits": "2",
+    "key": "BRL"
+  },
+  "BSD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "BSD"
+  },
+  "BTN": {
+    "symbol": "",
+    "decimalDigits": "2",
+    "key": "BTN"
+  },
+  "BWP": {
+    "symbol": "P",
+    "decimalDigits": "2",
+    "key": "BWP"
+  },
+  "BYN": {
+    "symbol": "Br",
+    "decimalDigits": "2",
+    "key": "BYN"
+  },
+  "BZD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "BZD"
+  },
+  "CAD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "CAD"
+  },
+  "CDF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "2",
+    "key": "CDF"
+  },
+  "CHF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "2",
+    "key": "CHF"
+  },
+  "CLP": {
+    "symbol": "$",
+    "decimalDigits": "0",
+    "key": "CLP"
+  },
+  "CNY": {
+    "symbol": "\u00a5",
+    "decimalDigits": "2",
+    "key": "CNY"
+  },
+  "COP": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "COP"
+  },
+  "CRC": {
+    "symbol": "\u20a1",
+    "decimalDigits": "2",
+    "key": "CRC"
+  },
+  "CUP": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "CUP"
+  },
+  "CVE": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "CVE"
+  },
+  "CZK": {
+    "symbol": "K\u010d",
+    "decimalDigits": "2",
+    "key": "CZK"
+  },
+  "DJF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "0",
+    "key": "DJF"
+  },
+  "DKK": {
+    "symbol": "kr",
+    "decimalDigits": "2",
+    "key": "DKK"
+  },
+  "DOP": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "DOP"
+  },
+  "DZD": {
+    "symbol": "\u062f.\u062c",
+    "decimalDigits": "2",
+    "key": "DZD"
+  },
+  "EGP": {
+    "symbol": "\u00a3",
+    "decimalDigits": "2",
+    "key": "EGP"
+  },
+  "ERN": {
+    "symbol": "Nfk",
+    "decimalDigits": "2",
+    "key": "ERN"
+  },
+  "ETB": {
+    "symbol": "",
+    "decimalDigits": "2",
+    "key": "ETB"
+  },
+  "EUR": {
+    "symbol": "\u20ac",
+    "decimalDigits": "2",
+    "key": "EUR"
+  },
+  "FJD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "FJD"
+  },
+  "FKP": {
+    "symbol": "\u00a3",
+    "decimalDigits": "2",
+    "key": "FKP"
+  },
+  "GBP": {
+    "symbol": "\u00a3",
+    "decimalDigits": "2",
+    "key": "GBP"
+  },
+  "GEL": {
+    "symbol": "\u10da",
+    "decimalDigits": "2",
+    "key": "GEL"
+  },
+  "GHS": {
+    "symbol": "\u20b5",
+    "decimalDigits": "2",
+    "key": "GHS"
+  },
+  "GIP": {
+    "symbol": "\u00a3",
+    "decimalDigits": "2",
+    "key": "GIP"
+  },
+  "GMD": {
+    "symbol": "D",
+    "decimalDigits": "2",
+    "key": "GMD"
+  },
+  "GNF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "0",
+    "key": "GNF"
+  },
+  "GTQ": {
+    "symbol": "Q",
+    "decimalDigits": "2",
+    "key": "GTQ"
+  },
+  "GYD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "GYD"
+  },
+  "HKD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "HKD"
+  },
+  "HNL": {
+    "symbol": "L",
+    "decimalDigits": "2",
+    "key": "HNL"
+  },
+  "HRK": {
+    "symbol": "Kn",
+    "decimalDigits": "2",
+    "key": "HRK"
+  },
+  "HTG": {
+    "symbol": "G",
+    "decimalDigits": "2",
+    "key": "HTG"
+  },
+  "HUF": {
+    "symbol": "Ft",
+    "decimalDigits": "2",
+    "key": "HUF"
+  },
+  "IDR": {
+    "symbol": "Rp",
+    "decimalDigits": "2",
+    "key": "IDR"
+  },
+  "ILS": {
+    "symbol": "\u20aa",
+    "decimalDigits": "2",
+    "key": "ILS"
+  },
+  "INR": {
+    "symbol": "\u20b9",
+    "decimalDigits": "2",
+    "key": "INR"
+  },
+  "IQD": {
+    "symbol": "\u0639.\u062f",
+    "decimalDigits": "3",
+    "key": "IQD"
+  },
+  "IRR": {
+    "symbol": "\ufdfc",
+    "decimalDigits": "2",
+    "key": "IRR"
+  },
+  "ISK": {
+    "symbol": "Kr",
+    "decimalDigits": "0",
+    "key": "ISK"
+  },
+  "JMD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "JMD"
+  },
+  "JOD": {
+    "symbol": "\u062f.\u0627",
+    "decimalDigits": "3",
+    "key": "JOD"
+  },
+  "JPY": {
+    "symbol": "\u00a5",
+    "decimalDigits": "0",
+    "key": "JPY"
+  },
+  "KES": {
+    "symbol": "Sh",
+    "decimalDigits": "2",
+    "key": "KES"
+  },
+  "KGS": {
+    "symbol": "",
+    "decimalDigits": "2",
+    "key": "KGS"
+  },
+  "KHR": {
+    "symbol": "\u17db",
+    "decimalDigits": "2",
+    "key": "KHR"
+  },
+  "KPW": {
+    "symbol": "\u20a9",
+    "decimalDigits": "2",
+    "key": "KPW"
+  },
+  "KRW": {
+    "symbol": "\u20a9",
+    "decimalDigits": "0",
+    "key": "KRW"
+  },
+  "KWD": {
+    "symbol": "\u062f.\u0643",
+    "decimalDigits": "3",
+    "key": "KWD"
+  },
+  "KYD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "KYD"
+  },
+  "KZT": {
+    "symbol": "\u3012",
+    "decimalDigits": "2",
+    "key": "KZT"
+  },
+  "LAK": {
+    "symbol": "\u20ad",
+    "decimalDigits": "2",
+    "key": "LAK"
+  },
+  "LBP": {
+    "symbol": "\u0644.\u0644",
+    "decimalDigits": "2",
+    "key": "LBP"
+  },
+  "LKR": {
+    "symbol": "Rs",
+    "decimalDigits": "2",
+    "key": "LKR"
+  },
+  "LRD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "LRD"
+  },
+  "LSL": {
+    "symbol": "L",
+    "decimalDigits": "2",
+    "key": "LSL"
+  },
+  "LYD": {
+    "symbol": "\u0644.\u062f",
+    "decimalDigits": "3",
+    "key": "LYD"
+  },
+  "MAD": {
+    "symbol": "\u062f.\u0645.",
+    "decimalDigits": "2",
+    "key": "MAD"
+  },
+  "MDL": {
+    "symbol": "L",
+    "decimalDigits": "2",
+    "key": "MDL"
+  },
+  "MGA": {
+    "symbol": "",
+    "decimalDigits": "2[c]",
+    "key": "MGA"
+  },
+  "MKD": {
+    "symbol": "\u0434\u0435\u043d",
+    "decimalDigits": "2",
+    "key": "MKD"
+  },
+  "MMK": {
+    "symbol": "K",
+    "decimalDigits": "2",
+    "key": "MMK"
+  },
+  "MNT": {
+    "symbol": "\u20ae",
+    "decimalDigits": "2",
+    "key": "MNT"
+  },
+  "MOP": {
+    "symbol": "P",
+    "decimalDigits": "2",
+    "key": "MOP"
+  },
+  "MUR": {
+    "symbol": "\u20a8",
+    "decimalDigits": "2",
+    "key": "MUR"
+  },
+  "MVR": {
+    "symbol": "\u0783.",
+    "decimalDigits": "2",
+    "key": "MVR"
+  },
+  "MWK": {
+    "symbol": "MK",
+    "decimalDigits": "2",
+    "key": "MWK"
+  },
+  "MXN": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "MXN"
+  },
+  "MYR": {
+    "symbol": "RM",
+    "decimalDigits": "2",
+    "key": "MYR"
+  },
+  "MZN": {
+    "symbol": "MTn",
+    "decimalDigits": "2",
+    "key": "MZN"
+  },
+  "NAD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "NAD"
+  },
+  "NGN": {
+    "symbol": "\u20a6",
+    "decimalDigits": "2",
+    "key": "NGN"
+  },
+  "NIO": {
+    "symbol": "C$",
+    "decimalDigits": "2",
+    "key": "NIO"
+  },
+  "NOK": {
+    "symbol": "kr",
+    "decimalDigits": "2",
+    "key": "NOK"
+  },
+  "NPR": {
+    "symbol": "\u20a8",
+    "decimalDigits": "2",
+    "key": "NPR"
+  },
+  "NZD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "NZD"
+  },
+  "OMR": {
+    "symbol": "\u0631.\u0639.",
+    "decimalDigits": "3",
+    "key": "OMR"
+  },
+  "PAB": {
+    "symbol": "B/.",
+    "decimalDigits": "2",
+    "key": "PAB"
+  },
+  "PEN": {
+    "symbol": "S/.",
+    "decimalDigits": "2",
+    "key": "PEN"
+  },
+  "PGK": {
+    "symbol": "K",
+    "decimalDigits": "2",
+    "key": "PGK"
+  },
+  "PHP": {
+    "symbol": "\u20b1",
+    "decimalDigits": "2",
+    "key": "PHP"
+  },
+  "PKR": {
+    "symbol": "\u20a8",
+    "decimalDigits": "2",
+    "key": "PKR"
+  },
+  "PLN": {
+    "symbol": "z\u0142",
+    "decimalDigits": "2",
+    "key": "PLN"
+  },
+  "PYG": {
+    "symbol": "\u20b2",
+    "decimalDigits": "0",
+    "key": "PYG"
+  },
+  "QAR": {
+    "symbol": "\u0631.\u0642",
+    "decimalDigits": "2",
+    "key": "QAR"
+  },
+  "RON": {
+    "symbol": "L",
+    "decimalDigits": "2",
+    "key": "RON"
+  },
+  "RSD": {
+    "symbol": "din",
+    "decimalDigits": "2",
+    "key": "RSD"
+  },
+  "RUB": {
+    "symbol": "\u0440.",
+    "decimalDigits": "2",
+    "key": "RUB"
+  },
+  "RWF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "0",
+    "key": "RWF"
+  },
+  "SAR": {
+    "symbol": "\u0631.\u0633",
+    "decimalDigits": "2",
+    "key": "SAR"
+  },
+  "SBD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "SBD"
+  },
+  "SCR": {
+    "symbol": "\u20a8",
+    "decimalDigits": "2",
+    "key": "SCR"
+  },
+  "SDG": {
+    "symbol": "\u00a3",
+    "decimalDigits": "2",
+    "key": "SDG"
+  },
+  "SEK": {
+    "symbol": "kr",
+    "decimalDigits": "2",
+    "key": "SEK"
+  },
+  "SGD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "SGD"
+  },
+  "SHP": {
+    "symbol": "\u00a3",
+    "decimalDigits": "2",
+    "key": "SHP"
+  },
+  "SLL": {
+    "symbol": "Le",
+    "decimalDigits": "2",
+    "key": "SLL"
+  },
+  "SOS": {
+    "symbol": "Sh",
+    "decimalDigits": "2",
+    "key": "SOS"
+  },
+  "SRD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "SRD"
+  },
+  "SYP": {
+    "symbol": "\u0644.\u0633",
+    "decimalDigits": "2",
+    "key": "SYP"
+  },
+  "SZL": {
+    "symbol": "L",
+    "decimalDigits": "2",
+    "key": "SZL"
+  },
+  "THB": {
+    "symbol": "\u0e3f",
+    "decimalDigits": "2",
+    "key": "THB"
+  },
+  "TJS": {
+    "symbol": "\u0405\u041c",
+    "decimalDigits": "2",
+    "key": "TJS"
+  },
+  "TMT": {
+    "symbol": "m",
+    "decimalDigits": "2",
+    "key": "TMT"
+  },
+  "TND": {
+    "symbol": "\u062f.\u062a",
+    "decimalDigits": "3",
+    "key": "TND"
+  },
+  "TOP": {
+    "symbol": "T$",
+    "decimalDigits": "2",
+    "key": "TOP"
+  },
+  "TRY": {
+    "symbol": "\u20a4",
+    "decimalDigits": "2",
+    "key": "TRY"
+  },
+  "TTD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "TTD"
+  },
+  "TWD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "TWD"
+  },
+  "TZS": {
+    "symbol": "Sh",
+    "decimalDigits": "2",
+    "key": "TZS"
+  },
+  "UAH": {
+    "symbol": "\u20b4",
+    "decimalDigits": "2",
+    "key": "UAH"
+  },
+  "UGX": {
+    "symbol": "Sh",
+    "decimalDigits": "0",
+    "key": "UGX"
+  },
+  "USD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "USD"
+  },
+  "UYU": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "UYU"
+  },
+  "UZS": {
+    "symbol": "",
+    "decimalDigits": "2",
+    "key": "UZS"
+  },
+  "VND": {
+    "symbol": "\u20ab",
+    "decimalDigits": "0",
+    "key": "VND"
+  },
+  "VUV": {
+    "symbol": "Vt",
+    "decimalDigits": "0",
+    "key": "VUV"
+  },
+  "WST": {
+    "symbol": "T",
+    "decimalDigits": "2",
+    "key": "WST"
+  },
+  "XAF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "0",
+    "key": "XAF"
+  },
+  "XCD": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "XCD"
+  },
+  "XPF": {
+    "symbol": "\u20a3",
+    "decimalDigits": "0",
+    "key": "XPF"
+  },
+  "YER": {
+    "symbol": "\ufdfc",
+    "decimalDigits": "2",
+    "key": "YER"
+  },
+  "ZAR": {
+    "symbol": "R",
+    "decimalDigits": "2",
+    "key": "ZAR"
+  },
+  "ZMW": {
+    "symbol": "ZK",
+    "decimalDigits": "2",
+    "key": "ZMW"
+  },
+  "ZWL": {
+    "symbol": "$",
+    "decimalDigits": "2",
+    "key": "ZWL"
+  }
+}
