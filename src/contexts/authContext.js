@@ -23,10 +23,10 @@ export const AuthProvider = ({ children }) => {
           },
         })
         .then(_ => {
+          api.defaults.headers.Authorization = tokenBearer;
           setSigned(true);
           setToken(storedToken);
           setUsername(storedUsername);
-          api.defaults.headers.Authorization = tokenBearer;
         })
         .catch(_ => {
           // token is not valid so do nothing
