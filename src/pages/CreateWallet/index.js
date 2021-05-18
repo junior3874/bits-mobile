@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { Image } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Feather } from "@expo/vector-icons";
@@ -34,11 +34,6 @@ function CreateWallet() {
   const [currency, setCurrency] = useState(null);
   const [balance, setBalance] = useState("");
   const route = useRoute();
-  const navigation = useNavigation();
-
-  if (route.params.canGoBack === false) {
-    navigation.setOptions({ tabBarVisible: false });
-  }
 
   async function handleSubmit() {
     const data = {
