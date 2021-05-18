@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { useContext } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { AuthContext } from "../../contexts/authContext";
 import Button from "../../components/Button";
@@ -16,14 +15,7 @@ import LogoImg from "../../assets/images/B.png";
 import HeroImg from "../../assets/images/finance.png";
 
 function Home() {
-  const { signed, loading } = useContext(AuthContext);
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    if (signed) {
-      return navigation.navigate("OverviewBottomTabNavigation");
-    }
-  }, [signed]);
+  const { loading } = useContext(AuthContext);
 
   if (loading) {
     return (

@@ -2,11 +2,8 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Text } from "react-native";
-import OverviewStackNavigation from "./OverviewStackNavigation";
 
 import CustomBottomTabBar from "../components/CustomBottomTabBar";
-
-import CreateWallet from "../pages/CreateWallet";
 
 import Overview from "../pages/Overview";
 import Transactions from "../pages/Transactions";
@@ -31,7 +28,7 @@ function BottomTabNavigation() {
     >
       <Tab.Screen
         name="Início"
-        component={OverviewStackNavigation}
+        component={Overview}
         options={{
           iconImg: homeImg,
           activeIconImg: homeActiveImg,
@@ -55,7 +52,6 @@ function BottomTabNavigation() {
         component={() => <Text>Teste1</Text>}
         options={{ iconImg: priceTagImg, activeIconImg: priceTagActiveImg }}
       />
-      <Tab.Screen name="CreateWallet" component={CreateWallet} />
     </Tab.Navigator>
   );
 }
