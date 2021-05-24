@@ -30,7 +30,10 @@ import MoneyBagIcon from "../../assets/images/money-bag.png";
 import api from "../../services/api";
 
 import { toasts } from "../../utils/toasts";
-import { formatBalance, convertBalanceToNumber } from "./utils/formatBalance";
+import {
+  formatBalance,
+  convertBalanceToNumber,
+} from "../../utils/formatBalance";
 import currencyCodes from "./utils/currencyCodes.json";
 
 function CreateWallet() {

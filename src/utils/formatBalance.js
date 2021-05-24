@@ -2,7 +2,7 @@ const centsSep = ".";
 const thousandsSep = ",";
 
 export function formatBalance(prevBalance, currency) {
-  const number = convertBalanceToNumber(prevBalance, currency);
+  const number = convertBalanceToNumber(String(prevBalance), currency);
 
   if (Number.isNaN(number)) {
     return;
