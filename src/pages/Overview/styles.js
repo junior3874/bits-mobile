@@ -92,11 +92,11 @@ const InfoCardItemMargin = css`
   margin: ${props => {
     if (props.first) {
       return "8px 0 0";
-    } else if (props.last) {
-      return "0 0 8px";
-    } else {
-      return "26px 0";
     }
+    if (props.last) {
+      return "0 0 8px";
+    }
+    return "26px 0";
   }};
 `;
 
