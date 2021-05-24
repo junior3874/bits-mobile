@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import api from "../../services/api";
@@ -50,10 +50,20 @@ function Overview() {
         .catch(err => ({ error: true, err }));
 
       if (response.error) {
-        navigation.navigate("CreateWallet", {
-          title: "Vamos criar sua primeira carteira!",
-          canGoBack: false,
-        });
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              {
+                name: "CreateWallet",
+                params: {
+                  title: "Vamos criar sua primeira carteira!",
+                  canGoBack: true,
+                },
+              },
+            ],
+          })
+        );
       }
     })();
   }, []);
