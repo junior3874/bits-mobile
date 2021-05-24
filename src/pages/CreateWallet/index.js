@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { useRoute } from "@react-navigation/native";
+import {
+  useRoute,
+  useNavigation,
+  CommonActions,
+} from "@react-navigation/native";
 import { Image } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Feather } from "@expo/vector-icons";
@@ -34,6 +38,7 @@ function CreateWallet() {
   const [currency, setCurrency] = useState(null);
   const [balance, setBalance] = useState("");
   const route = useRoute();
+  const navigation = useNavigation();
 
   async function handleSubmit() {
     const data = {
@@ -49,7 +54,19 @@ function CreateWallet() {
 
     if (response.error) {
       toasts.error("Falha ao criar carteira!");
+      return;
     }
+
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          {
+            name: "Overview",
+          },
+        ],
+      })
+    );
   }
 
   return (
