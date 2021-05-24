@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { ActivityIndicator, View } from "react-native";
 import { AuthContext } from "../../contexts/authContext";
 import Button from "../../components/Button";
@@ -16,6 +17,7 @@ import HeroImg from "../../assets/images/finance.png";
 
 function Home() {
   const { loading } = useContext(AuthContext);
+  const navigation = useNavigation();
 
   if (loading) {
     return (
