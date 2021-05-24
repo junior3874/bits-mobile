@@ -131,10 +131,14 @@ export const InfoCardItemValue = styled.Text`
 `;
 
 export const Wallet = styled.View`
+  width: 340px;
   margin: 30px 0;
-  background-color: #000;
+  margin-left: 16px;
   border-radius: 20px;
   elevation: 8;
+  flex: 1;
+  transform: ${({ active }) => (active ? "scale(1.05)" : "scale(1)")};
+  opacity: ${({ active }) => (active ? 1 : 0.6)};
 `;
 
 export const WalletGradient = styled(LinearGradient).attrs(_ => ({
@@ -147,13 +151,19 @@ export const WalletGradient = styled(LinearGradient).attrs(_ => ({
 `;
 
 export const WalletTitle = styled.Text`
-  font-size: 25px;
+  font-size: 24px;
   color: #fff;
   margin-bottom: 48px;
 `;
 
 export const WalletBalance = styled.Text`
-  font-size: 36px;
+  font-size: 26px;
   font-weight: bold;
   color: #fff;
+`;
+
+export const WalletCurrency = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbb;
 `;

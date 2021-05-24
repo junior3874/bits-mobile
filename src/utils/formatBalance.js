@@ -30,7 +30,7 @@ function sanitizeInput(input, currency) {
   return sanitizedInput;
 }
 
-function removeCurrency(input, currency) {
+export function removeCurrency(input, currency) {
   const inputWithoutCurrency = input.replace(currency, "").trim();
 
   return inputWithoutCurrency;
