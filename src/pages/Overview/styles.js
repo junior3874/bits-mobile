@@ -127,13 +127,14 @@ export const InfoCardItemValue = styled.Text`
 `;
 
 export const Wallet = styled.View`
-  width: 340px;
   margin: 30px 16px;
   border-radius: 20px;
   elevation: 8;
   flex: 1;
-  transform: ${({ active }) => (active ? "scale(1.05)" : "scale(1)")};
-  opacity: ${({ active }) => (active ? 1 : 0.6)};
+  transform: ${({ active, single }) =>
+    !active || single ? "scale(1)" : "scale(1.05)"};
+  opacity: ${({ active, single }) => (single || active ? 1 : 0.6)};
+  ${({ single }) => !single && "width: 340px"};
 `;
 
 export const WalletGradient = styled(LinearGradient).attrs(_ => ({

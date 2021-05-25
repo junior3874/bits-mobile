@@ -162,6 +162,7 @@ function Overview() {
   function navegatePage(pageName) {
     return navigation.navigate(pageName);
   }
+
   return (
     <Container>
       <HeaderImage source={curvedPurpleBackgroundImg} />
@@ -228,31 +229,52 @@ function Overview() {
         <Heading>Carteira</Heading>
       </ContentPadding>
 
-      <FlatList
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
-        keyExtractor={item => item.name}
-        data={wallets}
-        renderItem={({ item, index }) => (
-          <Wallet active={selectedWalletIndex === index}>
-            <WalletGradient
-              colors={["#8900f2", "#2d00f7"]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 0.75, y: 1 }}
-            >
-              <WalletTitle>{item.name}</WalletTitle>
+      {wallets.length === 1 ? (
+        <Wallet single>
+          <WalletGradient
+            colors={["#8900f2", "#2d00f7"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0.75, y: 1 }}
+          >
+            <WalletTitle>{selectedWallet.name}</WalletTitle>
 
-              <RowSpacedBetween>
-                <WalletBalance>
-                  <WalletCurrency>{item.currency} </WalletCurrency>
-                  {item.formattedBalanceWithoutCurrency}
-                </WalletBalance>
-              </RowSpacedBetween>
-            </WalletGradient>
-          </Wallet>
-        )}
-      />
+            <RowSpacedBetween>
+              <WalletBalance>
+                <WalletCurrency>{selectedWallet.currency} </WalletCurrency>
+                {selectedWallet.formattedBalanceWithoutCurrency}
+              </WalletBalance>
+            </RowSpacedBetween>
+          </WalletGradient>
+        </Wallet>
+      ) : (
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          viewabilityConfigCallbackPairs={
+            viewabilityConfigCallbackPairs.current
+          }
+          keyExtractor={item => item.name}
+          data={wallets}
+          renderItem={({ item, index }) => (
+            <Wallet active={selectedWalletIndex === index}>
+              <WalletGradient
+                colors={["#8900f2", "#2d00f7"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0.75, y: 1 }}
+              >
+                <WalletTitle>{item.name}</WalletTitle>
+
+                <RowSpacedBetween>
+                  <WalletBalance>
+                    <WalletCurrency>{item.currency} </WalletCurrency>
+                    {item.formattedBalanceWithoutCurrency}
+                  </WalletBalance>
+                </RowSpacedBetween>
+              </WalletGradient>
+            </Wallet>
+          )}
+        />
+      )}
 
       <ContentPadding>
         <RowSpacedBetween>
