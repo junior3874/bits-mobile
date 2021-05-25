@@ -121,7 +121,6 @@ function Overview() {
       setWalletSummary({
         expenses,
         incomes,
-        balance: 0, // TODO
       });
     }
   }
