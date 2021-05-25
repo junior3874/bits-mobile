@@ -52,11 +52,7 @@ import currencyCodes from "../../utils/currencyCodes.json";
 function Overview() {
   const [wallets, setWallets] = useState([]);
   const [selectedWalletIndex, setSelectedWalletIndex] = useState(0);
-  const [walletSummary, setWalletSummary] = useState({
-    expenses: 0,
-    incomes: 0,
-    balance: 0,
-  });
+  const [walletSummaries, setWalletSummaries] = useState({});
   const { username } = useContext(AuthContext);
   const navigation = useNavigation();
 
@@ -77,15 +73,21 @@ function Overview() {
     return formatBalance(balance, currencySymbol);
   }, [selectedWallet]);
 
-  const incomes = useMemo(
-    () => formatBalance(walletSummary.incomes, selectedWallet.currencySymbol),
-    [walletSummary]
-  );
+  const incomes = useMemo(() => {
+    const walletSummary = walletSummaries[selectedWallet.id];
+    return formatBalance(
+      walletSummary && walletSummary.incomes,
+      selectedWallet.currencySymbol
+    );
+  }, [walletSummaries, selectedWallet]);
 
-  const expenses = useMemo(
-    () => formatBalance(walletSummary.expenses, selectedWallet.currencySymbol),
-    [walletSummary]
-  );
+  const expenses = useMemo(() => {
+    const walletSummary = walletSummaries[selectedWallet.id];
+    return formatBalance(
+      walletSummary && walletSummary.expenses,
+      selectedWallet.currencySymbol
+    );
+  }, [walletSummaries, selectedWallet]);
 
   const onViewableItemsChanged = useCallback(({ viewableItems }) => {
     if (viewableItems.length > 0) {
@@ -105,7 +107,7 @@ function Overview() {
 
   useEffect(() => {
     fetchWallets();
-    fetchWalletSummary();
+    fetchWalletSummaries();
   }, []);
 
   async function fetchWallets() {
@@ -139,7 +141,7 @@ function Overview() {
     }
   }
 
-  async function fetchWalletSummary() {
+  async function fetchWalletSummaries() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
@@ -150,12 +152,7 @@ function Overview() {
       .catch(err => ({ error: true, err }));
 
     if (!response.error) {
-      const { expenses, incomes } = response.data.expensesAndIncome;
-
-      setWalletSummary({
-        expenses,
-        incomes,
-      });
+      setWalletSummaries(response.data.expensesAndIncome);
     }
   }
 
