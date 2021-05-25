@@ -2,17 +2,26 @@ const centsSep = ".";
 const thousandsSep = ",";
 
 export function formatBalance(prevBalance, currency) {
-  const number = convertBalanceToNumber(String(prevBalance), currency);
+  let number = convertBalanceToNumber(String(prevBalance), currency);
+
+  let minus = false;
 
   if (Number.isNaN(number)) {
     return;
   }
 
+  if (number < 0) {
+    minus = true;
+  }
+
+  number = Math.abs(number);
+
   const fixedPrecision = fixPrecision(number);
   const thousands = extractThousands(fixedPrecision);
   const cents = extractCents(fixedPrecision);
 
-  const formattedBalance = `${currency} ${thousands}${cents}`;
+  // eslint-disable-next-line prettier/prettier
+  const formattedBalance = `${minus ? "- " : ""}${currency} ${thousands}${cents}`;
   return formattedBalance;
 }
 
