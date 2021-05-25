@@ -34,7 +34,7 @@ import {
   formatBalance,
   convertBalanceToNumber,
 } from "../../utils/formatBalance";
-import currencyCodes from "./utils/currencyCodes.json";
+import currencyCodes from "../../utils/currencyCodes.json";
 
 function CreateWallet() {
   const [name, setName] = useState("");

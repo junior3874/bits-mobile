@@ -4,6 +4,7 @@ import React, {
   useState,
   useRef,
   useCallback,
+  useMemo,
 } from "react";
 import { useNavigation, CommonActions } from "@react-navigation/native";
 import { View, FlatList } from "react-native";
@@ -45,7 +46,8 @@ import {
 import BottomDivider from "../../components/BottomDivider";
 import Chart from "../../components/Chart";
 
-import { formatBalance, removeCurrency } from "../../utils/formatBalance";
+import { formatBalance } from "../../utils/formatBalance";
+import currencyCodes from "../../utils/currencyCodes.json";
 
 function Overview() {
   const [wallets, setWallets] = useState([]);
@@ -57,6 +59,33 @@ function Overview() {
   });
   const { username } = useContext(AuthContext);
   const navigation = useNavigation();
+
+  const selectedWallet = useMemo(() => {
+    if (wallets && wallets.length > 0) {
+      const wallet = wallets[selectedWalletIndex];
+      return {
+        ...wallet,
+        currencySymbol: currencyCodes[wallet.currency].symbol,
+      };
+    }
+
+    return { balance: 0 };
+  }, [wallets, selectedWalletIndex]);
+
+  const selectedWalletFormattedBalance = useMemo(() => {
+    const { balance, currencySymbol } = selectedWallet;
+    return formatBalance(balance, currencySymbol);
+  }, [selectedWallet]);
+
+  const incomes = useMemo(
+    () => formatBalance(walletSummary.incomes, selectedWallet.currencySymbol),
+    [walletSummary]
+  );
+
+  const expenses = useMemo(
+    () => formatBalance(walletSummary.expenses, selectedWallet.currencySymbol),
+    [walletSummary]
+  );
 
   const onViewableItemsChanged = useCallback(({ viewableItems }) => {
     if (viewableItems.length > 0) {
@@ -85,7 +114,12 @@ function Overview() {
       .then(res => ({ error: false, data: res.data }))
       .catch(err => ({ error: true, err }));
 
-    setWallets(response.data);
+    const mappedWallets = response.data.map(w => ({
+      ...w,
+      formattedBalanceWithoutCurrency: formatBalance(w.balance, ""),
+    }));
+
+    setWallets(mappedWallets);
 
     if (response.error) {
       navigation.dispatch(
@@ -172,29 +206,20 @@ function Overview() {
             <InfoCardItem first>
               <Feather name="plus-square" size={20} color="#8900f2" />
               <InfoCardItemTitle>Receitas</InfoCardItemTitle>
-              <InfoCardItemValue>
-                {formatBalance(walletSummary.incomes, "R$")}
-              </InfoCardItemValue>
+              <InfoCardItemValue>{incomes}</InfoCardItemValue>
             </InfoCardItem>
 
             <InfoCardItem>
               <Feather name="minus-square" size={20} color="#8900f2" />
               <InfoCardItemTitle>Despesas</InfoCardItemTitle>
-              <InfoCardItemValue>
-                {formatBalance(walletSummary.expenses, "R$")}
-              </InfoCardItemValue>
+              <InfoCardItemValue>{expenses}</InfoCardItemValue>
             </InfoCardItem>
 
             <InfoCardItem last>
               <Feather name="dollar-sign" size={20} color="#8900f2" />
               <InfoCardItemTitle>Saldo</InfoCardItemTitle>
               <InfoCardItemValue bold>
-                {formatBalance(
-                  wallets &&
-                    wallets[selectedWalletIndex] &&
-                    wallets[selectedWalletIndex].balance,
-                  "R$"
-                )}
+                {selectedWalletFormattedBalance}
               </InfoCardItemValue>
             </InfoCardItem>
           </InfoCard>
@@ -221,10 +246,7 @@ function Overview() {
               <RowSpacedBetween>
                 <WalletBalance>
                   <WalletCurrency>{item.currency} </WalletCurrency>
-                  {removeCurrency(
-                    formatBalance(item.balance, item.currency),
-                    item.currency
-                  )}
+                  {item.formattedBalanceWithoutCurrency}
                 </WalletBalance>
               </RowSpacedBetween>
             </WalletGradient>
