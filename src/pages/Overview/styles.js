@@ -13,10 +13,6 @@ export const HeaderImage = styled.Image`
   height: 162px;
 `;
 
-export const Content = styled.View`
-  padding: 16px;
-`;
-
 export const HeaderContent = styled.View`
   margin-top: -136px;
 `;
@@ -132,8 +128,7 @@ export const InfoCardItemValue = styled.Text`
 
 export const Wallet = styled.View`
   width: 340px;
-  margin: 30px 0;
-  margin-left: 16px;
+  margin: 30px 16px;
   border-radius: 20px;
   elevation: 8;
   flex: 1;
@@ -166,4 +161,8 @@ export const WalletCurrency = styled.Text`
   font-size: 16px;
   font-weight: bold;
   color: #bbb;
+`;
+
+export const ContentPadding = styled.View`
+  padding: 16px;
 `;

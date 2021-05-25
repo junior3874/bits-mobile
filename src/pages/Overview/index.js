@@ -19,7 +19,7 @@ import { AuthContext } from "../../contexts/authContext";
 import {
   Container,
   HeaderImage,
-  Content,
+  ContentPadding,
   HeaderContent,
   Greetings,
   Bold,
@@ -133,7 +133,7 @@ function Overview() {
     <Container>
       <HeaderImage source={curvedPurpleBackgroundImg} />
 
-      <Content>
+      <ContentPadding>
         <HeaderContent>
           <Greetings>
             Olá, <Bold>{username}</Bold>
@@ -191,7 +191,8 @@ function Overview() {
               <InfoCardItemTitle>Saldo</InfoCardItemTitle>
               <InfoCardItemValue bold>
                 {formatBalance(
-                  wallets[selectedWalletIndex] &&
+                  wallets &&
+                    wallets[selectedWalletIndex] &&
                     wallets[selectedWalletIndex].balance,
                   "R$"
                 )}
@@ -201,48 +202,47 @@ function Overview() {
         </Info>
 
         <Heading>Carteira</Heading>
+      </ContentPadding>
 
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          viewabilityConfigCallbackPairs={
-            viewabilityConfigCallbackPairs.current
-          }
-          keyExtractor={item => item.name}
-          data={wallets}
-          ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
-          renderItem={({ item, index }) => (
-            <Wallet active={selectedWalletIndex === index}>
-              <WalletGradient
-                colors={["#8900f2", "#2d00f7"]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0.75, y: 1 }}
-              >
-                <WalletTitle>{item.name}</WalletTitle>
+      <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+        keyExtractor={item => item.name}
+        data={wallets}
+        renderItem={({ item, index }) => (
+          <Wallet active={selectedWalletIndex === index}>
+            <WalletGradient
+              colors={["#8900f2", "#2d00f7"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0.75, y: 1 }}
+            >
+              <WalletTitle>{item.name}</WalletTitle>
 
-                <RowSpacedBetween>
-                  <WalletBalance>
-                    <WalletCurrency>{item.currency} </WalletCurrency>
-                    {removeCurrency(
-                      formatBalance(item.balance, item.currency),
-                      item.currency
-                    )}
-                  </WalletBalance>
-                </RowSpacedBetween>
-              </WalletGradient>
-            </Wallet>
-          )}
-        />
+              <RowSpacedBetween>
+                <WalletBalance>
+                  <WalletCurrency>{item.currency} </WalletCurrency>
+                  {removeCurrency(
+                    formatBalance(item.balance, item.currency),
+                    item.currency
+                  )}
+                </WalletBalance>
+              </RowSpacedBetween>
+            </WalletGradient>
+          </Wallet>
+        )}
+      />
 
+      <ContentPadding>
         <RowSpacedBetween>
           <Heading>Balanço</Heading>
           <HeadingInfo>Fevereiro</HeadingInfo>
         </RowSpacedBetween>
 
         <Chart />
+      </ContentPadding>
 
-        <BottomDivider />
-      </Content>
+      <BottomDivider />
     </Container>
   );
 }
