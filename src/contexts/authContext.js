@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
           },
         })
         .then(_ => {
-          api.defaults.headers.Authorization = tokenBearer;
+          setAuthorizationAsDefaultHeader(storedToken);
           setSigned(true);
           setToken(storedToken);
           setUsername(storedUsername);
@@ -40,6 +40,7 @@ export const AuthProvider = ({ children }) => {
     const res = await api
       .post("/session", data)
       .then(res => {
+        setAuthorizationAsDefaultHeader(res.data.token);
         setToken(res.data.token);
         setUsername(res.data.username);
         setSigned(true);
@@ -55,6 +56,10 @@ export const AuthProvider = ({ children }) => {
 
     return res;
   }, []);
+
+  function setAuthorizationAsDefaultHeader(token) {
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+  }
 
   const signUp = useCallback(
     data =>
