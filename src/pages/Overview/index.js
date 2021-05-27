@@ -157,7 +157,7 @@ function Overview() {
     }
   }
 
-  function navegatePage(pageName) {
+  function navigatePage(pageName) {
     return navigation.navigate(pageName);
   }
 
@@ -179,7 +179,7 @@ function Overview() {
               </View>
             </MenuItem>
 
-            <MenuItem onPress={() => navegatePage("Debts")}>
+            <MenuItem onPress={() => navigatePage("Debts")}>
               <View>
                 <MenuItemIcon source={debtsImg} />
                 <MenuItemText>Dívidas</MenuItemText>
