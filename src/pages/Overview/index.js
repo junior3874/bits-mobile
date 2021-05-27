@@ -31,6 +31,7 @@ import {
   Info,
   RowSpacedBetween,
   Heading,
+  AddWallet,
   HeadingInfo,
   InfoCard,
   InfoCardItem,
@@ -224,7 +225,12 @@ function Overview() {
           </InfoCard>
         </Info>
 
-        <Heading>Carteira</Heading>
+        <RowSpacedBetween>
+          <Heading>Carteira</Heading>
+          <AddWallet onPress={() => navigatePage("CreateWallet")}>
+            <Feather name="plus" size={24} color="#8900f2" />
+          </AddWallet>
+        </RowSpacedBetween>
       </ContentPadding>
 
       {wallets.length === 1 ? (

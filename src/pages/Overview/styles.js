@@ -71,6 +71,12 @@ export const Heading = styled.Text`
   color: #8900f2;
 `;
 
+export const AddWallet = styled.TouchableOpacity`
+  padding: 4px;
+  border: 1px solid #666;
+  border-radius: 4px;
+`;
+
 export const HeadingInfo = styled.Text`
   font-size: 16px;
   color: #999;

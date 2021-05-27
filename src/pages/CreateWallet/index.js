@@ -74,10 +74,12 @@ function CreateWallet() {
 
   return (
     <Container>
-      {route.params.canGoBack !== false && <GoBackArrow />}
+      {(route.params && route.params.canGoBack) !== false && <GoBackArrow />}
 
       <Header>
-        <Title>{route.params.title || "Criar nova carteira!"}</Title>
+        <Title>
+          {(route.params && route.params.title) || "Criar nova carteira!"}
+        </Title>
       </Header>
 
       <Content>
