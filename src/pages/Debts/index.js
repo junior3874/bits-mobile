@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import DebtComponent from "../../components/DebtComponent";
+import DebtComponent from "../../components/Debt";
 
 import {
   Container,
