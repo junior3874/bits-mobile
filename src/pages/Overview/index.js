@@ -116,13 +116,6 @@ function Overview() {
       .then(res => ({ error: false, data: res.data }))
       .catch(err => ({ error: true, err }));
 
-    const mappedWallets = response.data.map(w => ({
-      ...w,
-      formattedBalanceWithoutCurrency: formatBalance(w.balance, ""),
-    }));
-
-    setWallets(mappedWallets);
-
     if (response.error) {
       navigation.dispatch(
         CommonActions.reset({
@@ -138,7 +131,15 @@ function Overview() {
           ],
         })
       );
+      return;
     }
+
+    const mappedWallets = response.data.map(w => ({
+      ...w,
+      formattedBalanceWithoutCurrency: formatBalance(w.balance, ""),
+    }));
+
+    setWallets(mappedWallets);
   }
 
   async function fetchWalletSummaries() {
