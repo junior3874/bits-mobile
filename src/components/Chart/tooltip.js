@@ -1,8 +1,6 @@
 import React from "react";
 import { G, Rect, Text, Polygon, Path } from "react-native-svg";
 
-import moment from "moment";
-
 const Tooltip = ({
   // eslint-disable-next-line react/prop-types
   x,
@@ -26,8 +24,8 @@ const Tooltip = ({
     }
   }
 
-  let tooltipValueFormatted = `R$ ${tooltipValue},26`;
-  let rectWidth =
+  const tooltipValueFormatted = `R$ ${tooltipValue},26`;
+  const rectWidth =
     tooltipValueFormatted.length < 10
       ? 72
       : tooltipValueFormatted.length * 8 - tooltipValueFormatted.length * 0.5;
