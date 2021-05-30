@@ -21,6 +21,8 @@ export const LeftIconView = styled.View`
   display: ${props => (props.active ? "none" : "flex")};
   margin-left: 16px;
   margin-right: 20px;
+  width: 20px;
+  height: 20px;
 `;
 
 export const InputContainer = styled.View`

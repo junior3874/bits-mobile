@@ -3,25 +3,25 @@ import { Picker } from "@react-native-picker/picker";
 
 export const Container = styled.View`
   margin: 16px 0;
+  border: 2px solid #c5c5c5;
+  border-radius: 5px;
+  flex-direction: row;
 `;
 
 export const Icon = styled.View`
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 4;
+  align-self: center;
+  margin-left: 16px;
+  margin-right: 20px;
+  width: 20px;
+  height: 20px;
 `;
 
 export const PickerView = styled.View`
   height: 50px;
-  border: 2px solid #c5c5c5;
-  border-radius: 5px;
-  padding-left: 60px;
-  position: relative;
+  flex: 1;
 `;
 
 export const StyledPicker = styled(Picker)`
   height: 50px;
-  margin-top: -2px;
-  margin-left: -10px;
+  margin-left: -8px;
 `;
