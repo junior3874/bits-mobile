@@ -120,9 +120,13 @@ function CreateWallet() {
           </InputIcon>
           <Input
             value={balance}
-            onChangeText={text =>
-              setBalance(formatBalance(text, currency.symbol))
-            }
+            onChangeText={text => {
+              const formatted = formatBalance(text, currency.symbol);
+
+              if (formatted) {
+                setBalance(formatted);
+              }
+            }}
             placeholder="Valor da carteira"
             keyboardType="numeric"
             editable={!!currency}
