@@ -1,8 +1,6 @@
 import React from "react";
 import { Picker } from "@react-native-picker/picker";
 
-import currencyCodes from "../../utils/currencyCodes.json";
-
 import { Container, Icon, PickerView, StyledPicker } from "./styles";
 
 function InputFiedPicker({
