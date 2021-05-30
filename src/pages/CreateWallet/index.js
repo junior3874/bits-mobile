@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   useRoute,
   useNavigation,
@@ -7,7 +7,11 @@ import {
 import { Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
+import { WalletContext } from "../../contexts/walletContext";
+
+import Header from "../../components/Header";
 import InputField from "../../components/InputField";
+import InputFieldPicker from "../../components/InputFieldPicker";
 import GoBackArrow from "../../components/GoBackArrow";
 import BottomDivider from "../../components/BottomDivider";
 
@@ -25,6 +29,7 @@ import {
 import currencyCodes from "../../utils/currencyCodes.json";
 
 function CreateWallet() {
+  const { fetchWallets } = useContext(WalletContext);
   const [name, setName] = useState("");
   const [currency, setCurrency] = useState(null);
   const [balance, setBalance] = useState("");
@@ -48,6 +53,8 @@ function CreateWallet() {
       return;
     }
 
+    fetchWallets();
+
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
@@ -64,9 +71,7 @@ function CreateWallet() {
     <Container>
       {!route.params?.canGoBack && <GoBackArrow />}
 
-      <Header>
-        <Title>{route.params?.title || "Criar nova carteira!"}</Title>
-      </Header>
+      <Header title={route.params?.title || "Criar nova carteira!"} />
 
       <Content>
         <InputField
