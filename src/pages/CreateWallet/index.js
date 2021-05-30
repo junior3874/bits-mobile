@@ -85,7 +85,10 @@ function CreateWallet() {
         <InputFieldPicker
           leftIcon={() => <Image source={MoneyBagIcon} />}
           value={currency}
-          onValueChange={value => setCurrency(value)}
+          onValueChange={value => {
+            setBalance("");
+            setCurrency(value);
+          }}
           title="Escolha a moeda da sua carteira"
           placeholder="Moeda"
           data={Object.keys(currencyCodes).map(key => ({
