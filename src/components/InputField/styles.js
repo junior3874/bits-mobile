@@ -9,7 +9,7 @@ export const Container = styled.View`
 
 export const Content = styled.View`
   align-items: center;
-  border: 2px solid #d5d5d5;
+  border: 2px solid #c5c5c5;
   border-radius: 5px;
   flex-direction: row;
   height: 64px;
