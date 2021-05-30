@@ -102,7 +102,7 @@ function CreateWallet() {
           value={balance}
           placeholder="Valor"
           onChangeText={text => {
-            const formatted = formatBalance(text, "R$");
+            const formatted = formatBalance(text, currency.symbol);
 
             if (formatted) {
               setBalance(formatted);
