@@ -46,12 +46,6 @@ function Home() {
             onPress={() => navigation.navigate("SignUp")}
             title="Criar conta"
           />
-          <Button
-            variant="filled"
-            variantColor="#4a5"
-            onPress={() => navigation.navigate("OverviewBottomTabNavigation")}
-            title="Overview"
-          />
         </GroupingView>
       </Content>
     </Container>
