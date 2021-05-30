@@ -1,13 +1,6 @@
-import React, {
-  useContext,
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useContext, useEffect, useState, useMemo } from "react";
 import { useNavigation, CommonActions } from "@react-navigation/native";
-import { View, FlatList } from "react-native";
+import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import api from "../../services/api";
 import transactionsImg from "../../assets/images/left-and-right-arrow.png";
@@ -16,6 +9,7 @@ import budgetsImg from "../../assets/images/budgets.png";
 import curvedPurpleBackgroundImg from "../../assets/images/curved-purple-background.png";
 
 import { AuthContext } from "../../contexts/authContext";
+import { WalletContext } from "../../contexts/walletContext";
 
 import {
   Container,
@@ -37,37 +31,19 @@ import {
   InfoCardItem,
   InfoCardItemTitle,
   InfoCardItemValue,
-  Wallet,
-  WalletGradient,
-  WalletTitle,
-  WalletBalance,
-  WalletCurrency,
 } from "./styles";
 
 import BottomDivider from "../../components/BottomDivider";
 import Chart from "../../components/Chart";
+import WalletFlatList from "../../components/WalletFlatList";
 
 import { formatBalance } from "../../utils/formatBalance";
-import currencyCodes from "../../utils/currencyCodes.json";
 
 function Overview() {
-  const [wallets, setWallets] = useState([]);
-  const [selectedWalletIndex, setSelectedWalletIndex] = useState(0);
-  const [walletSummaries, setWalletSummaries] = useState({});
+  const { wallets, selectedWallet } = useContext(WalletContext);
   const { username } = useContext(AuthContext);
+  const [walletSummaries, setWalletSummaries] = useState({});
   const navigation = useNavigation();
-
-  const selectedWallet = useMemo(() => {
-    if (wallets?.length > 0) {
-      const wallet = wallets[selectedWalletIndex];
-      return {
-        ...wallet,
-        currencySymbol: currencyCodes[wallet.currency].symbol,
-      };
-    }
-
-    return { balance: 0 };
-  }, [wallets, selectedWalletIndex]);
 
   const selectedWalletFormattedBalance = useMemo(() => {
     const { balance, currencySymbol } = selectedWallet;
@@ -87,34 +63,8 @@ function Overview() {
     );
   }, [walletSummaries, selectedWallet]);
 
-  const onViewableItemsChanged = useCallback(({ viewableItems }) => {
-    if (viewableItems.length > 0) {
-      setSelectedWalletIndex(viewableItems[0].index);
-    }
-  }, []);
-
-  const viewabilityConfigCallbackPairs = useRef([
-    {
-      viewabilityConfig: {
-        waitForInteraction: true,
-        itemVisiblePercentThreshold: 75,
-      },
-      onViewableItemsChanged,
-    },
-  ]);
-
   useEffect(() => {
-    fetchWallets();
-    fetchWalletSummaries();
-  }, []);
-
-  async function fetchWallets() {
-    const response = await api
-      .get("/wallet")
-      .then(res => ({ error: false, data: res.data }))
-      .catch(err => ({ error: true, err }));
-
-    if (response.error) {
+    if (!wallets) {
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
@@ -129,16 +79,12 @@ function Overview() {
           ],
         })
       );
-      return;
     }
+  }, [wallets]);
 
-    const mappedWallets = response.data.map(w => ({
-      ...w,
-      formattedBalanceWithoutCurrency: formatBalance(w.balance, ""),
-    }));
-
-    setWallets(mappedWallets);
-  }
+  useEffect(() => {
+    fetchWalletSummaries();
+  }, []);
 
   async function fetchWalletSummaries() {
     const currentDate = new Date();
@@ -230,52 +176,7 @@ function Overview() {
         </RowSpacedBetween>
       </ContentPadding>
 
-      {wallets.length === 1 ? (
-        <Wallet single>
-          <WalletGradient
-            colors={["#8900f2", "#2d00f7"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0.75, y: 1 }}
-          >
-            <WalletTitle>{selectedWallet.name}</WalletTitle>
-
-            <RowSpacedBetween>
-              <WalletBalance>
-                <WalletCurrency>{selectedWallet.currency} </WalletCurrency>
-                {selectedWallet.formattedBalanceWithoutCurrency}
-              </WalletBalance>
-            </RowSpacedBetween>
-          </WalletGradient>
-        </Wallet>
-      ) : (
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          viewabilityConfigCallbackPairs={
-            viewabilityConfigCallbackPairs.current
-          }
-          keyExtractor={item => item.name}
-          data={wallets}
-          renderItem={({ item, index }) => (
-            <Wallet active={selectedWalletIndex === index}>
-              <WalletGradient
-                colors={["#8900f2", "#2d00f7"]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0.75, y: 1 }}
-              >
-                <WalletTitle>{item.name}</WalletTitle>
-
-                <RowSpacedBetween>
-                  <WalletBalance>
-                    <WalletCurrency>{item.currency} </WalletCurrency>
-                    {item.formattedBalanceWithoutCurrency}
-                  </WalletBalance>
-                </RowSpacedBetween>
-              </WalletGradient>
-            </Wallet>
-          )}
-        />
-      )}
+      <WalletFlatList />
 
       <ContentPadding>
         <RowSpacedBetween>
