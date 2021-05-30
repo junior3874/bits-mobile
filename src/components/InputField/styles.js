@@ -1,13 +1,16 @@
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
-  margin: 20px 0;
+  margin: 16px 0;
+  opacity: ${({ editable }) => (!editable ? "0.7" : "1")};
+  background-color: ${({ editable }) =>
+    !editable ? "#e5e5e5" : "transparent"};
 `;
 
 export const Content = styled.View`
   align-items: center;
-  border: 2px solid #e5e5e5;
-  border-radius: 10px;
+  border: 2px solid #d5d5d5;
+  border-radius: 5px;
   flex-direction: row;
   height: 64px;
   width: 100%;

@@ -11,22 +11,30 @@ import {
   InputPlaceholder,
 } from "./styles";
 
-function InputField({ leftIcon: LeftIcon, placeholder, value, ...rest }) {
+function InputField({
+  leftIcon: LeftIcon,
+  placeholder,
+  value,
+  contentStyle,
+  editable = true,
+  ...rest
+}) {
   const inputRef = useRef();
   const [isInputOpen, setIsInputOpen] = useState(false);
 
-  const active = useMemo(() => {
-    return isInputOpen || value !== "";
-  }, [isInputOpen, value]);
+  const active = useMemo(() => isInputOpen || value !== "", [
+    isInputOpen,
+    value,
+  ]);
 
   function setFocusToInput() {
     inputRef.current?.focus();
   }
 
   return (
-    <Container>
+    <Container editable={editable}>
       <TouchableWithoutFeedback onPress={setFocusToInput}>
-        <Content>
+        <Content style={contentStyle}>
           <LeftIconView active={active}>
             <LeftIcon />
           </LeftIconView>
@@ -36,6 +44,8 @@ function InputField({ leftIcon: LeftIcon, placeholder, value, ...rest }) {
               onFocus={() => setIsInputOpen(true)}
               onBlur={() => setIsInputOpen(false)}
               active={active}
+              value={value}
+              editable={editable}
               {...rest}
             />
             <InputPlaceholder active={active} inputValue={value}>
