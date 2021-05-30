@@ -58,7 +58,7 @@ function Overview() {
   const navigation = useNavigation();
 
   const selectedWallet = useMemo(() => {
-    if (wallets && wallets.length > 0) {
+    if (wallets?.length > 0) {
       const wallet = wallets[selectedWalletIndex];
       return {
         ...wallet,
@@ -76,16 +76,13 @@ function Overview() {
 
   const incomes = useMemo(() => {
     const walletSummary = walletSummaries[selectedWallet.id];
-    return formatBalance(
-      walletSummary && walletSummary.incomes,
-      selectedWallet.currencySymbol
-    );
+    return formatBalance(walletSummary?.incomes, selectedWallet.currencySymbol);
   }, [walletSummaries, selectedWallet]);
 
   const expenses = useMemo(() => {
     const walletSummary = walletSummaries[selectedWallet.id];
     return formatBalance(
-      walletSummary && walletSummary.expenses,
+      walletSummary?.expenses,
       selectedWallet.currencySymbol
     );
   }, [walletSummaries, selectedWallet]);
