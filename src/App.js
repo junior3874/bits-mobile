@@ -5,13 +5,16 @@ import Toast from "react-native-toast-message";
 import toastConfig from "./lib/toastConfig";
 import Routes from "./routes";
 import { AuthProvider } from "./contexts/authContext";
+import { WalletProvider } from "./contexts/walletContext";
 
 export default function App() {
   return (
     <AuthProvider>
-      <Routes />
-      <StatusBar style="auto" />
-      <Toast ref={toastRef => Toast.setRef(toastRef)} config={toastConfig} />
+      <WalletProvider>
+        <Routes />
+        <StatusBar style="auto" />
+        <Toast ref={toastRef => Toast.setRef(toastRef)} config={toastConfig} />
+      </WalletProvider>
     </AuthProvider>
   );
 }
