@@ -5,25 +5,13 @@ import {
   CommonActions,
 } from "@react-navigation/native";
 import { Image } from "react-native";
-import { Picker } from "@react-native-picker/picker";
 import { Feather } from "@expo/vector-icons";
 
+import InputField from "../../components/InputField";
 import GoBackArrow from "../../components/GoBackArrow";
 import BottomDivider from "../../components/BottomDivider";
 
-import {
-  Container,
-  Header,
-  Content,
-  PickerView,
-  StyledPicker,
-  InputWithIcon,
-  InputIcon,
-  Input,
-  Title,
-  SubmitButton,
-  SubmitButtonText,
-} from "./styles";
+import { Container, Content, SubmitButton, SubmitButtonText } from "./styles";
 
 import MoneyBagIcon from "../../assets/images/money-bag.png";
 
@@ -81,55 +69,43 @@ function CreateWallet() {
       </Header>
 
       <Content>
-        <InputWithIcon first>
-          <InputIcon>
-            <Feather name="edit" color="#8900f2" size={24} />
-          </InputIcon>
-          <Input
-            value={name}
-            onChangeText={setName}
-            placeholder="Nome"
-            editable
-          />
-        </InputWithIcon>
+        <InputField
+          leftIcon={() => <Feather name="edit" size={20} color="#8900f2" />}
+          value={name}
+          placeholder="Nome"
+          onChangeText={setName}
+          contentStyle={{ height: 50 }}
+        />
 
-        <InputWithIcon>
-          <InputIcon>
-            <Image source={MoneyBagIcon} />
-          </InputIcon>
-          <PickerView>
-            <StyledPicker
-              selectedValue={currency}
-              onValueChange={value => setCurrency(value)}
-              mode="dialog"
-              prompt="Escolha a moeda da sua carteira"
-            >
-              <Picker.Item label="Moeda" value={null} />
-              {Object.keys(currencyCodes).map(key => (
-                <Picker.Item key={key} label={key} value={currencyCodes[key]} />
-              ))}
-            </StyledPicker>
-          </PickerView>
-        </InputWithIcon>
+        <InputFieldPicker
+          leftIcon={() => <Image source={MoneyBagIcon} />}
+          value={currency}
+          onValueChange={value => setCurrency(value)}
+          title="Escolha a moeda da sua carteira"
+          data={Object.keys(currencyCodes).map(key => ({
+            key,
+            label: key,
+            value: currencyCodes[key],
+          }))}
+        />
 
-        <InputWithIcon>
-          <InputIcon>
+        <InputField
+          leftIcon={() => (
             <Feather name="dollar-sign" color="#8900f2" size={24} />
-          </InputIcon>
-          <Input
-            value={balance}
-            onChangeText={text => {
-              const formatted = formatBalance(text, currency.symbol);
+          )}
+          value={balance}
+          placeholder="Valor"
+          onChangeText={text => {
+            const formatted = formatBalance(text, "R$");
 
-              if (formatted) {
-                setBalance(formatted);
-              }
-            }}
-            placeholder="Valor da carteira"
-            keyboardType="numeric"
-            editable={!!currency}
-          />
-        </InputWithIcon>
+            if (formatted) {
+              setBalance(formatted);
+            }
+          }}
+          keyboardType="numeric"
+          contentStyle={{ height: 50 }}
+          editable={!!currency}
+        />
 
         <SubmitButton onPress={handleSubmit}>
           <SubmitButtonText>Criar carteira</SubmitButtonText>
