@@ -170,7 +170,7 @@ function Overview() {
           </Greetings>
 
           <Menu>
-            <MenuItem>
+            <MenuItem onPress={() => navigatePage("Transactions")}>
               <View>
                 <MenuItemIcon source={transactionsImg} />
                 <MenuItemText>Transações</MenuItemText>
