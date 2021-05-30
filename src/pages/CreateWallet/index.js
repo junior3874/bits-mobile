@@ -87,6 +87,7 @@ function CreateWallet() {
           value={currency}
           onValueChange={value => setCurrency(value)}
           title="Escolha a moeda da sua carteira"
+          placeholder="Moeda"
           data={Object.keys(currencyCodes).map(key => ({
             key,
             label: key,

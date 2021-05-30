@@ -9,6 +9,7 @@ function InputFiedPicker({
   onValueChange,
   title,
   data,
+  placeholder = "Selecione",
 }) {
   return (
     <Container>
@@ -22,7 +23,7 @@ function InputFiedPicker({
           mode="dialog"
           prompt={title}
         >
-          <Picker.Item label="Moeda" value={null} />
+          <Picker.Item label={placeholder} value={null} />
           {data.map(item => (
             <Picker.Item key={item.key} label={item.label} value={item.value} />
           ))}
