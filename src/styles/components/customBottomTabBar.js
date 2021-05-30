@@ -61,7 +61,17 @@ export const ChooseAction = styled.View`
   justify-content: space-between;
 `;
 
+export const ChooseActionTouchable = styled.TouchableOpacity`
+  flex: 1;
+  align-items: center;
+
+  margin-top: ${({ left, right }) => (left || right ? "6px" : "0")};
+  border-top-right-radius: ${({ right }) => (right ? "75px" : "0")};
+  border-top-left-radius: ${({ left }) => (left ? "75px" : "0")};
+`;
+
 export const ChooseActionIcon = styled.Image`
   width: 22px;
   height: 22px;
+  margin-top: 36px;
 `;

@@ -16,6 +16,7 @@ import {
   AddTransactionTouchable,
   ChooseActionView,
   ChooseAction,
+  ChooseActionTouchable,
   ChooseActionIcon,
 } from "../styles/components/customBottomTabBar";
 
@@ -40,9 +41,13 @@ function MyTabBar({ state, navigation, descriptors }) {
     return null;
   }
 
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
   return (
     <>
-      <ImageContainer source={bottomImg}>
+      <ImageContainer source={bottomImg} pointerEvents="box-none">
         <FourItemsDisplay>
           <Half>
             {/* first half */}
@@ -74,11 +79,11 @@ function MyTabBar({ state, navigation, descriptors }) {
           </Half>
         </FourItemsDisplay>
       </ImageContainer>
-      <AddTransaction style={{ bottom: isMenuOpen ? 24 : 40 }}>
-        <AddTransactionTouchable
-          onPress={() => setIsMenuOpen(!isMenuOpen)}
-          isMenuOpen={isMenuOpen}
-        >
+      <AddTransaction
+        style={{ bottom: isMenuOpen ? 24 : 40 }}
+        pointerEvents="box-none"
+      >
+        <AddTransactionTouchable onPress={toggleMenu} isMenuOpen={isMenuOpen}>
           <Feather
             name="plus"
             size={40}
@@ -89,15 +94,15 @@ function MyTabBar({ state, navigation, descriptors }) {
       {isMenuOpen && (
         <ChooseActionView>
           <ChooseAction>
-            <View style={{ marginTop: 44, marginLeft: 14 }}>
+            <ChooseActionTouchable left>
               <ChooseActionIcon source={leftAndRightArrowImg} />
-            </View>
-            <View style={{ marginTop: 16 }}>
-              <ChooseActionIcon source={debtsImg} />
-            </View>
-            <View style={{ marginTop: 44, marginRight: 14 }}>
+            </ChooseActionTouchable>
+            <ChooseActionTouchable center>
+              <ChooseActionIcon source={debtsImg} style={{ marginTop: 18 }} />
+            </ChooseActionTouchable>
+            <ChooseActionTouchable right>
               <ChooseActionIcon source={budgetsImg} />
-            </View>
+            </ChooseActionTouchable>
           </ChooseAction>
         </ChooseActionView>
       )}
