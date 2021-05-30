@@ -21,7 +21,7 @@ export function formatBalance(prevBalance, currency) {
   const cents = extractCents(fixedPrecision);
 
   // eslint-disable-next-line prettier/prettier
-  const formattedBalance = `${minus ? "- " : ""}${currency} ${thousands}${cents}`;
+  const formattedBalance = `${minus ? "- " : ""}${currency || ""} ${thousands}${cents}`;
   return formattedBalance;
 }
 
