@@ -64,6 +64,7 @@ function WalletFlatList() {
   return (
     <FlatList
       horizontal
+      initialScrollIndex={selectedWalletIndex}
       showsHorizontalScrollIndicator={false}
       viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
       keyExtractor={item => item.name}

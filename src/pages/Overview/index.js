@@ -1,5 +1,9 @@
 import React, { useContext, useEffect, useState, useMemo } from "react";
-import { useNavigation, CommonActions } from "@react-navigation/native";
+import {
+  useNavigation,
+  CommonActions,
+  useFocusEffect,
+} from "@react-navigation/native";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import api from "../../services/api";
@@ -40,10 +44,17 @@ import WalletFlatList from "../../components/WalletFlatList";
 import { formatBalance } from "../../utils/formatBalance";
 
 function Overview() {
+  const [shouldRender, setShouldRender] = useState(true);
   const { wallets, selectedWallet } = useContext(WalletContext);
   const { username } = useContext(AuthContext);
   const [walletSummaries, setWalletSummaries] = useState({});
   const navigation = useNavigation();
+
+  useFocusEffect(() => {
+    setShouldRender(true);
+
+    return () => setShouldRender(false);
+  });
 
   const selectedWalletFormattedBalance = useMemo(() => {
     const { balance, currencySymbol } = selectedWallet;
@@ -105,7 +116,7 @@ function Overview() {
     return navigation.navigate(pageName);
   }
 
-  return (
+  return !shouldRender ? null : (
     <Container>
       <HeaderImage source={curvedPurpleBackgroundImg} />
 
