@@ -25,9 +25,13 @@
 - [Primeiros passos](#getting_started)
 - [Tecnologias usadas](#built_using)
 
+<br />
+
 ## 🧐 Sobre <a name = "about"></a>
 
 Aplicativo para controle de gastos, desenvolvido com React Native.
+
+<br />
 
 ## 🏁 Primeiros passos <a name = "getting_started"></a>
 
@@ -42,6 +46,8 @@ yarn
 ```sh
 yarn start
 ```
+
+<br />
 
 ## :computer: Tecnologias usadas <a name="built_using">
 
