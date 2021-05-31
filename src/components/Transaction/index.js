@@ -18,7 +18,7 @@ import {
 import WalletIcon from "../../assets/images/WalletIcon.png";
 
 function Transaction({ amount, date, walletName }) {
-  console.log("renderizado");
+
   const formattedDate = useMemo(
     () => format(new Date(date), "d 'de' MMMM", { locale: ptBR }),
     [date]
