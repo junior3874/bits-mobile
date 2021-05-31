@@ -37,6 +37,9 @@ Aplicativo para controle de gastos, desenvolvido com React Native.
 
 Estas instruçōes te darão uma cópia funcional do projeto na sua máquina local para desenvolvimento e testes.
 
+### Pré-requisitos
+- Você precisará rodar o [backend](https://github.com/viniciusrodrigues1a/bits-server/)
+
 ### Instalando as dependências:
 ```sh
 yarn
