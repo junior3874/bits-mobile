@@ -51,10 +51,12 @@ export const WalletProvider = ({ children }) => {
       return;
     }
 
-    const mappedWallets = response.data.map(w => ({
+    let mappedWallets = response.data.map(w => ({
       ...w,
       formattedBalanceWithoutCurrency: formatBalance(w.balance, ""),
     }));
+
+    mappedWallets = mappedWallets.sort((first, second) => first.id - second.id);
 
     setWallets(mappedWallets);
   }
