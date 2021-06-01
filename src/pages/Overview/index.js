@@ -95,9 +95,12 @@ function Overview() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
+    const timezoneOffset = currentDate.getTimezoneOffset();
 
     const response = await api
-      .get(`/transactions/index/month?year=${year}&month=${month}`)
+      .get(
+        `/transactions/index/month?year=${year}&month=${month}&timezoneOffset=${timezoneOffset}`
+      )
       .then(res => ({ error: false, data: res.data }))
       .catch(err => ({ error: true, err }));
 
