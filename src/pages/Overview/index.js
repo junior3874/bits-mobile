@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useMemo } from "react";
 import {
   useNavigation,
   CommonActions,
-  useFocusEffect,
+  useIsFocused,
 } from "@react-navigation/native";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
@@ -44,17 +44,11 @@ import WalletFlatList from "../../components/WalletFlatList";
 import { formatBalance } from "../../utils/formatBalance";
 
 function Overview() {
-  const [shouldRender, setShouldRender] = useState(true);
   const { wallets, selectedWallet } = useContext(WalletContext);
   const { username } = useContext(AuthContext);
   const [walletSummaries, setWalletSummaries] = useState({});
   const navigation = useNavigation();
-
-  useFocusEffect(() => {
-    setShouldRender(true);
-
-    return () => setShouldRender(false);
-  });
+  const isFocused = useIsFocused();
 
   const selectedWalletFormattedBalance = useMemo(() => {
     const { balance, currencySymbol } = selectedWallet;
@@ -95,7 +89,7 @@ function Overview() {
 
   useEffect(() => {
     fetchWalletSummaries();
-  }, []);
+  }, [isFocused]);
 
   async function fetchWalletSummaries() {
     const currentDate = new Date();
@@ -116,7 +110,7 @@ function Overview() {
     return navigation.navigate(pageName);
   }
 
-  return !shouldRender ? null : (
+  return (
     <Container>
       <HeaderImage source={curvedPurpleBackgroundImg} />
 
@@ -187,7 +181,7 @@ function Overview() {
         </RowSpacedBetween>
       </ContentPadding>
 
-      <WalletFlatList />
+      {isFocused ? <WalletFlatList /> : null}
 
       <ContentPadding>
         <RowSpacedBetween>
