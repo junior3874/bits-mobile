@@ -7,6 +7,7 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import Debts from "../pages/Debts";
 import CreateWallet from "../pages/CreateWallet";
+import CreateTransaction from "../pages/CreateTransaction";
 
 import { AuthContext } from "../contexts/authContext";
 
@@ -22,6 +23,10 @@ function AuthStackNavigation() {
           <Stack.Screen name="Overview" component={BottomTabNavigation} />
           <Stack.Screen name="Debts" component={Debts} />
           <Stack.Screen name="CreateWallet" component={CreateWallet} />
+          <Stack.Screen
+            name="CreateTransaction"
+            component={CreateTransaction}
+          />
         </>
       ) : (
         <>

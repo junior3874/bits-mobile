@@ -94,7 +94,13 @@ function MyTabBar({ state, navigation, descriptors }) {
       {isMenuOpen && (
         <ChooseActionView>
           <ChooseAction>
-            <ChooseActionTouchable left>
+            <ChooseActionTouchable
+              left
+              onPress={() => {
+                navigation.navigate("CreateTransaction");
+                toggleMenu();
+              }}
+            >
               <ChooseActionIcon source={leftAndRightArrowImg} />
             </ChooseActionTouchable>
             <ChooseActionTouchable center>
