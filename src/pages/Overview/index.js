@@ -184,7 +184,13 @@ function Overview() {
         </RowSpacedBetween>
       </ContentPadding>
 
-      {isFocused ? <WalletFlatList /> : null}
+      {isFocused ? (
+        <WalletFlatList />
+      ) : (
+        <View
+          style={{ width: "100%", backgroundColor: "transparent", height: 195 }}
+        />
+      )}
 
       <ContentPadding>
         <RowSpacedBetween>
